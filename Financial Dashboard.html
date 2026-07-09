@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacific Green Industries — FY2025 Financial Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,440;0,9..144,520;0,9..144,600;1,9..144,440&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --bg: #15130f;
+  --bg-soft: #191510;
+  --surface: #1e1a13;
+  --surface-2: #262015;
+  --surface-hover: #2b2418;
+  --border: #362f20;
+  --border-soft: #28230f;
+  --text-primary: #f4ecdc;
+  --text-secondary: #b9ac90;
+  --text-tertiary: #8c7f65;
+
+  --timber: #cd9455;
+  --timber-bright: #e6ac6c;
+  --timber-soft: rgba(205,148,85,0.14);
+  --timber-soft-2: rgba(205,148,85,0.28);
+
+  --green: #93a97c;
+  --green-bright: #aec293;
+  --green-soft: rgba(147,169,124,0.14);
+  --green-soft-2: rgba(147,169,124,0.30);
+
+  --rust: #c06f4b;
+  --rust-bright: #d68a63;
+  --rust-soft: rgba(192,111,75,0.14);
+  --rust-soft-2: rgba(192,111,75,0.30);
+
+  --muted-slate: #7d8fae;
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+
+  --content-w: 1180px;
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 20px;
+
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px -16px rgba(0,0,0,0.55);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse 900px 500px at 12% -10%, rgba(205,148,85,0.09), transparent 60%),
+    radial-gradient(ellipse 800px 600px at 100% 10%, rgba(147,169,124,0.06), transparent 55%);
+  background-attachment: fixed;
+}
+img,svg{ display:block; max-width:100%; }
+a{ color: inherit; }
+button{ font-family: inherit; }
+::selection{ background: var(--timber-soft-2); color: var(--text-primary); }
+
+.wrap{
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 720px){ .wrap{ padding: 0 40px; } }
+@media (min-width: 1100px){ .wrap{ padding: 0 48px; } }
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--timber);
+  font-weight: 500;
+}
+
+::-webkit-scrollbar{ height:8px; width:8px; }
+::-webkit-scrollbar-track{ background:transparent; }
+::-webkit-scrollbar-thumb{ background: var(--border); border-radius: 8px; }
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+  outline: 2px solid var(--timber-bright);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-header{
+  position: sticky; top:0; z-index:40;
+  background: rgba(21,19,15,0.82);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  border-bottom: 1px solid var(--border-soft);
+}
+.header-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; padding:14px 0;
+}
+.brand{ display:flex; align-items:center; gap:12px; min-width:0; }
+.brand-mark{
+  width:38px; height:38px; flex:0 0 auto; border-radius:9px;
+  background: linear-gradient(155deg, var(--surface-2), var(--surface));
+  border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-weight:600; font-size:1rem; color:var(--timber-bright);
+}
+.brand-text{ min-width:0; }
+.brand-name{ font-weight:600; font-size:0.98rem; letter-spacing:0.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.brand-meta{ font-family: var(--font-mono); font-size:0.68rem; color:var(--text-tertiary); letter-spacing:0.04em; white-space:nowrap; }
+
+.header-actions{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.btn-data{
+  display:flex; align-items:center; gap:7px;
+  background: var(--surface); border:1px solid var(--border);
+  color: var(--text-secondary); font-size:0.78rem; font-weight:600;
+  padding:8px 13px; border-radius:100px; cursor:pointer;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+  white-space:nowrap;
+}
+.btn-data:hover{ border-color: var(--timber-soft-2); color: var(--timber-bright); background: var(--surface-2); }
+.btn-data svg{ width:14px; height:14px; flex:0 0 auto; }
+
+.pill-nav{
+  display:flex; gap:6px; overflow-x:auto; padding:0 0 12px;
+  scrollbar-width:none;
+}
+.pill-nav::-webkit-scrollbar{ display:none; }
+.pill-nav button{
+  background:transparent; border:1px solid transparent; color:var(--text-secondary);
+  font-size:0.82rem; font-weight:500; padding:7px 14px; border-radius:100px;
+  cursor:pointer; white-space:nowrap; transition: all .15s ease;
+}
+.pill-nav button:hover{ color: var(--text-primary); background: var(--surface); }
+.pill-nav button.active{ color: var(--bg); background: var(--timber); font-weight:600; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{ padding: 56px 0 40px; }
+@media (min-width: 720px){ .hero{ padding: 84px 0 56px; } }
+.hero-headline{
+  font-family: var(--font-display);
+  font-weight: 520;
+  font-size: clamp(2.1rem, 6vw, 3.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  margin: 18px 0 20px;
+  max-width: 15ch;
+}
+.hero-headline em{ font-style: italic; color: var(--timber-bright); font-weight:440; }
+.hero-sub{
+  font-size: 1.05rem; line-height:1.6; color: var(--text-secondary);
+  max-width: 62ch; margin: 0 0 8px;
+}
+.hero-currency-note{ font-family: var(--font-mono); font-size:0.72rem; color:var(--text-tertiary); margin-top:14px; }
+
+/* KPI strip */
+.kpi-grid{
+  display:grid; grid-template-columns: repeat(2,1fr); gap:1px;
+  background: var(--border-soft);
+  border:1px solid var(--border-soft);
+  border-radius: var(--radius-m);
+  overflow:hidden;
+  margin-top:40px;
+}
+@media (min-width: 640px){ .kpi-grid{ grid-template-columns: repeat(3,1fr); } }
+@media (min-width: 980px){ .kpi-grid{ grid-template-columns: repeat(6,1fr); } }
+.kpi-tile{
+  background: var(--surface); padding:18px 16px 16px;
+  display:flex; flex-direction:column; gap:6px;
+}
+.kpi-label{ font-size:0.7rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-tertiary); font-weight:600; }
+.kpi-value{ font-family: var(--font-display); font-size:clamp(1.35rem,3vw,1.65rem); font-weight:520; font-variant-numeric: tabular-nums; }
+.kpi-delta{ display:inline-flex; align-items:center; gap:4px; font-family: var(--font-mono); font-size:0.74rem; font-weight:600; width:fit-content; }
+.kpi-delta.positive{ color: var(--green-bright); }
+.kpi-delta.watch{ color: var(--rust-bright); }
+.kpi-delta.neutral{ color: var(--text-tertiary); }
+.kpi-delta svg{ width:11px; height:11px; }
+
+/* ============================================================
+   JOINERY DIVIDER (signature element)
+   ============================================================ */
+.joint-divider{
+  height:14px; margin: 64px 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cpath d='M0 1 H7 V7 H14 V1 H21 V7 H28' fill='none' stroke='%23cd9455' stroke-width='1' opacity='0.42'/%3E%3C/svg%3E");
+  background-repeat: repeat-x; background-position: left center; background-size: 28px 14px;
+  opacity:0.9;
+}
+@media (min-width:720px){ .joint-divider{ margin: 88px 0; } }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section{ padding: 8px 0 8px; scroll-margin-top: 96px; }
+.section-head{ margin-bottom:28px; max-width:74ch; }
+.section-index{ font-family: var(--font-mono); font-size:0.72rem; color: var(--timber); letter-spacing:0.08em; margin-bottom:10px; }
+.section-title{
+  font-family: var(--font-display); font-weight:520;
+  font-size: clamp(1.5rem, 3.4vw, 2.05rem); letter-spacing:-0.01em; margin:0 0 12px;
+}
+.section-intro{ color: var(--text-secondary); font-size:0.98rem; line-height:1.65; }
+
+.prose{ max-width: 72ch; }
+.prose p{ color: var(--text-secondary); font-size:1rem; line-height:1.75; margin:0 0 18px; }
+.prose p:last-child{ margin-bottom:0; }
+.prose strong{ color: var(--text-primary); font-weight:600; }
+.prose .callout-watch{ color: var(--rust-bright); font-weight:600; }
+.prose .callout-good{ color: var(--green-bright); font-weight:600; }
+
+/* ============================================================
+   CARDS / PANELS
+   ============================================================ */
+.panel{
+  background: var(--surface); border:1px solid var(--border);
+  border-radius: var(--radius-m); box-shadow: var(--shadow-card);
+}
+.panel-pad{ padding: 22px; }
+@media (min-width:720px){ .panel-pad{ padding: 30px; } }
+
+.two-col{ display:grid; grid-template-columns:1fr; gap:20px; }
+@media (min-width: 880px){ .two-col{ grid-template-columns: 1fr 1fr; gap:24px; } }
+
+.chart-card-title{ font-size:0.92rem; font-weight:600; margin:0 0 4px; }
+.chart-card-sub{ font-size:0.8rem; color:var(--text-tertiary); margin:0 0 20px; }
+
+/* legend */
+.legend{ display:flex; flex-wrap:wrap; gap:14px; margin-top:16px; }
+.legend-item{ display:flex; align-items:center; gap:7px; font-size:0.78rem; color:var(--text-secondary); }
+.legend-dot{ width:9px; height:9px; border-radius:2px; flex:0 0 auto; }
+
+/* ============================================================
+   DATA TABLES
+   ============================================================ */
+.data-table-wrap{ overflow-x:auto; border-radius: var(--radius-m); border:1px solid var(--border); background: var(--surface); }
+table.data-table{ width:100%; border-collapse:collapse; font-size:0.88rem; min-width:560px; }
+.data-table caption{ text-align:left; padding:16px 20px 4px; font-weight:600; font-family:var(--font-body); }
+.data-table th, .data-table td{ padding:11px 16px; text-align:right; border-bottom:1px solid var(--border-soft); white-space:nowrap; }
+.data-table th:first-child, .data-table td:first-child{ text-align:left; white-space:normal; min-width:200px; }
+.data-table thead th{
+  font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-tertiary);
+  font-weight:600; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--surface);
+}
+.data-table tbody tr:last-child td{ border-bottom:none; }
+.data-table tbody tr.section-marker td{
+  font-family: var(--font-mono); text-transform:uppercase; letter-spacing:0.06em; font-size:0.68rem;
+  color:var(--timber); font-weight:600; background:var(--bg-soft); padding-top:14px; padding-bottom:6px; border-bottom:1px solid var(--border-soft);
+}
+.mc-row.section-marker{
+  font-family: var(--font-mono); text-transform:uppercase; letter-spacing:0.06em; font-size:0.68rem;
+  color:var(--timber); font-weight:600; background:var(--bg-soft); padding-top:12px; padding-bottom:8px;
+}
+.mc-row.section-marker .mc-label{ margin-bottom:0; }
+.data-table tbody tr.subtotal td{ font-weight:600; color:var(--text-primary); background: var(--surface-2); }
+.data-table tbody tr.total td{ font-weight:700; color:var(--timber-bright); background: var(--timber-soft); border-top:1px solid var(--timber-soft-2); }
+.data-table td.num, .data-table th.num{ font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.data-table td.chg-pos{ color: var(--green-bright); }
+.data-table td.chg-neg{ color: var(--rust-bright); }
+.data-table td.muted{ color: var(--text-tertiary); }
+.row-indent td:first-child{ padding-left:16px; color:var(--text-secondary); }
+
+/* mobile card table fallback */
+.mobile-cards{ display:none; }
+@media (max-width: 640px){
+  .data-table-wrap{ display:none; }
+  .mobile-cards{ display:block; border:1px solid var(--border); border-radius: var(--radius-m); overflow:hidden; background:var(--surface); }
+  .mobile-cards .mc-caption{ padding:16px 18px 6px; font-weight:600; }
+  .mc-row{ padding:13px 18px; border-bottom:1px solid var(--border-soft); }
+  .mc-row.subtotal{ background:var(--surface-2); font-weight:600; }
+  .mc-row.total{ background:var(--timber-soft); }
+  .mc-row.total .mc-label{ color:var(--timber-bright); font-weight:700; }
+  .mc-row:last-child{ border-bottom:none; }
+  .mc-label{ font-size:0.86rem; margin-bottom:6px; }
+  .mc-vals{ display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.82rem; }
+  .mc-val-item{ display:flex; flex-direction:column; gap:2px; }
+  .mc-val-item .mc-yr{ font-size:0.64rem; color:var(--text-tertiary); text-transform:uppercase; letter-spacing:0.05em; font-family:var(--font-body); }
+  .mc-chg-pos{ color:var(--green-bright); }
+  .mc-chg-neg{ color:var(--rust-bright); }
+}
+
+/* small stat strip (per-share notes etc.) */
+.mini-stats{ display:grid; grid-template-columns: repeat(2,1fr); gap:1px; background:var(--border-soft); border:1px solid var(--border-soft); border-radius:var(--radius-m); overflow:hidden; margin-top:20px; }
+@media (min-width:640px){ .mini-stats{ grid-template-columns: repeat(3,1fr); } }
+.mini-stat{ background:var(--surface); padding:15px 16px; }
+.mini-stat-label{ font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-tertiary); font-weight:600; margin-bottom:6px; }
+.mini-stat-value{ font-family:var(--font-mono); font-size:1.05rem; font-weight:600; }
+.mini-stat-value .prior{ font-size:0.78rem; color:var(--text-tertiary); font-weight:400; margin-left:6px; }
+
+/* ============================================================
+   RATIO SECTION
+   ============================================================ */
+.ratio-filter{ display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; margin-bottom:28px; scrollbar-width:none; }
+.ratio-filter::-webkit-scrollbar{ display:none; }
+.ratio-filter button{
+  background: var(--surface); border:1px solid var(--border); color:var(--text-secondary);
+  font-size:0.82rem; font-weight:600; padding:9px 16px; border-radius:100px; cursor:pointer;
+  white-space:nowrap; transition: all .15s ease;
+}
+.ratio-filter button:hover{ color:var(--text-primary); border-color:var(--timber-soft-2); }
+.ratio-filter button.active{ background: var(--timber); color: var(--bg); border-color:var(--timber); }
+
+.ratio-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
+@media (min-width:720px){ .ratio-grid{ grid-template-columns: repeat(2,1fr); } }
+
+.ratio-card{
+  background: var(--surface); border:1px solid var(--border); border-radius: var(--radius-m);
+  padding:20px 22px; box-shadow: var(--shadow-card);
+  display:flex; flex-direction:column; gap:12px;
+}
+.ratio-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.ratio-name{ font-weight:600; font-size:0.96rem; line-height:1.3; }
+.ratio-formula{ font-family:var(--font-mono); font-size:0.7rem; color:var(--text-tertiary); margin-top:4px; }
+.status-tag{
+  font-size:0.68rem; font-weight:700; padding:4px 9px; border-radius:100px; white-space:nowrap;
+  text-transform:uppercase; letter-spacing:0.04em; flex:0 0 auto;
+}
+.status-tag.positive{ background: var(--green-soft); color: var(--green-bright); }
+.status-tag.watch{ background: var(--rust-soft); color: var(--rust-bright); }
+.status-tag.neutral{ background: var(--timber-soft); color: var(--timber-bright); }
+
+.ratio-values{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+.ratio-value-main{ font-family:var(--font-display); font-size:1.9rem; font-weight:520; font-variant-numeric:tabular-nums; }
+.ratio-value-prior{ font-family:var(--font-mono); font-size:0.85rem; color:var(--text-tertiary); }
+.ratio-value-chg{ font-family:var(--font-mono); font-size:0.8rem; font-weight:600; }
+.ratio-value-chg.positive{ color:var(--green-bright); }
+.ratio-value-chg.watch{ color:var(--rust-bright); }
+.ratio-value-chg.neutral{ color:var(--text-tertiary); }
+
+.ratio-interp{ color:var(--text-secondary); font-size:0.89rem; line-height:1.65; }
+.ratio-na{ background: var(--surface); border:1px dashed var(--border); border-radius: var(--radius-m); padding:18px 22px; color:var(--text-tertiary); font-size:0.85rem; line-height:1.6; }
+.ratio-na strong{ color:var(--text-secondary); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{ border-top:1px solid var(--border-soft); margin-top:90px; padding:36px 0 48px; }
+.footer-row{ display:flex; flex-direction:column; gap:14px; }
+@media (min-width:720px){ .footer-row{ flex-direction:row; justify-content:space-between; align-items:flex-end; } }
+.footer-note{ font-size:0.82rem; color:var(--text-tertiary); line-height:1.6; max-width:56ch; }
+.footer-meta{ font-family:var(--font-mono); font-size:0.72rem; color:var(--text-tertiary); }
+
+/* ============================================================
+   UPLOAD MODAL
+   ============================================================ */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(10,9,6,0.7); backdrop-filter: blur(4px);
+  display:none; align-items:center; justify-content:center; z-index:100; padding:20px;
+}
+.modal-overlay.open{ display:flex; }
+.modal-box{
+  background: var(--surface); border:1px solid var(--border); border-radius: var(--radius-l);
+  max-width:480px; width:100%; padding:28px; box-shadow: 0 24px 60px -12px rgba(0,0,0,0.6);
+}
+.modal-title{ font-family:var(--font-display); font-size:1.3rem; font-weight:560; margin:0 0 10px; }
+.modal-desc{ font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin:0 0 20px; }
+.drop-zone{
+  border:1.5px dashed var(--border); border-radius: var(--radius-m); padding:28px 20px;
+  text-align:center; cursor:pointer; transition:border-color .15s ease, background .15s ease;
+}
+.drop-zone:hover, .drop-zone.dragover{ border-color: var(--timber-soft-2); background: var(--timber-soft); }
+.drop-zone svg{ width:26px; height:26px; margin:0 auto 12px; color:var(--timber); }
+.drop-zone-text{ font-size:0.86rem; color:var(--text-secondary); }
+.drop-zone-sub{ font-size:0.74rem; color:var(--text-tertiary); margin-top:6px; }
+.modal-status{ margin-top:14px; font-size:0.82rem; min-height:20px; }
+.modal-status.ok{ color: var(--green-bright); }
+.modal-status.err{ color: var(--rust-bright); }
+.modal-actions{ display:flex; justify-content:space-between; align-items:center; margin-top:20px; }
+.modal-close, .modal-reset{
+  background:transparent; border:1px solid var(--border); color:var(--text-secondary);
+  font-size:0.8rem; font-weight:600; padding:8px 16px; border-radius:100px; cursor:pointer;
+}
+.modal-close:hover, .modal-reset:hover{ color:var(--text-primary); border-color:var(--timber-soft-2); }
+#file-input{ display:none; }
+
+/* ============================================================
+   MISC / UTILITY
+   ============================================================ */
+.svg-chart{ width:100%; height:auto; }
+.chart-axis-label{ font-family:var(--font-mono); font-size:9px; fill:var(--text-tertiary); }
+.chart-value-label{ font-family:var(--font-mono); font-size:11px; font-weight:600; }
+.chart-bar-label{ font-family:var(--font-body); font-size:11.5px; fill:var(--text-secondary); }
+.chart-gridline{ stroke:var(--border-soft); stroke-width:1; }
+
+.fade-up{ animation: fadeUp 0.6s ease both; }
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
+
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-row">
+      <div class="brand">
+        <div class="brand-mark">PG</div>
+        <div class="brand-text">
+          <div class="brand-name">Pacific Green Industries</div>
+          <div class="brand-meta" id="brand-period">FY2025 · SOUTH PACIFIC STOCK EXCHANGE</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-data" id="open-upload-btn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="upload-label">Data source</span>
+        </button>
+      </div>
+    </div>
+    <nav class="pill-nav" id="pill-nav" aria-label="Section navigation">
+      <button data-target="overview" class="active">Overview</button>
+      <button data-target="balance-sheet">Balance Sheet</button>
+      <button data-target="income-statement">Income Statement</button>
+      <button data-target="cash-flow">Cash Flow</button>
+      <button data-target="ratios">Ratio Analysis</button>
+    </nav>
+  </div>
+</header>
+
+<main id="app">
+  <!-- Rendered entirely by render.js from FIN.data -->
+</main>
+
+<div class="modal-overlay" id="upload-modal">
+  <div class="modal-box">
+    <h3 class="modal-title">Update the data source</h3>
+    <p class="modal-desc">This entire dashboard is generated from the uploaded spreadsheet — nothing here is hand-typed. Drop in an updated workbook (same four-sheet template: Balance Sheet, Income Statement, Cash Flow Statement, Ratio Analysis) to regenerate every figure, chart and interpretation.</p>
+    <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Upload spreadsheet">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <div class="drop-zone-text">Drop a .xlsx file here, or click to browse</div>
+      <div class="drop-zone-sub">Parsed locally in your browser — the file never leaves this device</div>
+    </div>
+    <input type="file" id="file-input" accept=".xlsx">
+    <div class="modal-status" id="modal-status"></div>
+    <div class="modal-actions">
+      <button class="modal-reset" id="modal-reset-btn" type="button">Reset to original</button>
+      <button class="modal-close" id="modal-close-btn" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+/* ============================================================================
+   FIN — the "backend". Everything the dashboard renders reads from FIN.data.
+   The default dataset below was parsed directly from the uploaded workbook
+   (Pranshu_20260615.xlsx). Uploading a new file that follows the same
+   four-sheet template re-parses and replaces FIN.data — see the XLSX
+   parser near the bottom of this script.
+   ============================================================================ */
+const FIN = {};
+
+FIN.defaultData = {
+  meta: {
+    company: "Pacific Green Industries",
+    ticker: "PGI",
+    exchange: "South Pacific Stock Exchange",
+    currency: "FJD",
+    yearCurrent: "2025",
+    yearPrior: "2024",
+    sourceLabel: "Pranshu_20260615.xlsx",
+    generatedNote: "Parsed from the uploaded workbook"
+  },
+
+  balanceSheet: {
+    nonCurrentAssets: [
+      { label: "Property, Plant, and Equipment (PPE)", y25: 3449735, y24: 3448185, vert25: 0.4097858437218065, vert24: 0.40784947471498495, chAmt: 1550, chPct: 0.0004495118446371062 },
+      { label: "Right of Use Asset", y25: 155608, y24: 136630, vert25: 0.018484305481395777, vert24: 0.01616052321157606, chAmt: 18978, chPct: 0.13890068067042377 },
+      { label: "Biological Asset – Eco Park Project", y25: 82080, y24: 94503, vert25: 0.009750088645268658, vert24: 0.0111777642176943, chAmt: -12423, chPct: -0.1314561442493889 }
+    ],
+    totalNonCurrentAssets: { label: "Total Non-Current Assets", y25: 3687423, y24: 3679318, vert25: 0.43802023784847094, vert24: 0.4351877621442553, chAmt: 8105, chPct: 0.0022028538984670528 },
+    currentAssets: [
+      { label: "Cash and Cash Equivalents", y25: 1965951, y24: 1684834, vert25: 0.23353065938419304, vert24: 0.19928126300704485, chAmt: 281117, chPct: 0.16685145242795432 },
+      { label: "Trade and Other Receivables", y25: 27940, y24: 189608, vert25: 0.003318926373645301, vert24: 0.022426732672916002, chAmt: -161668, chPct: -0.8526433483819248 },
+      { label: "Inventories", y25: 2469510, y24: 2831786, vert25: 0.2933472394051828, vert24: 0.3349421311806786, chAmt: -362276, chPct: -0.12793198356090468 },
+      { label: "Prepayments and Other Deposits", y25: 247691, y24: 69007, vert25: 0.02942262678649171, vert24: 0.008162110995105241, chAmt: 178684, chPct: 2.589360499659455 },
+      { label: "Current Tax Assets", y25: 19870, y24: 0, vert25: 0.0023603102020161824, vert24: 0, chAmt: 19870, chPct: null }
+    ],
+    totalCurrentAssets: { label: "Total Current Assets", y25: 4730962, y24: 4775235, vert25: 0.5619797621515291, vert24: 0.5648122378557447, chAmt: -44273, chPct: -0.009271376173109806 },
+    totalAssets: { label: "Total Assets", y25: 8418385, y24: 8454553, vert25: 1, vert24: 1, chAmt: -36168, chPct: -0.004277931665931954 },
+
+    equity: [
+      { label: "Share Capital", y25: 8123444, y24: 8123444, vert25: 0.9649646577104753, vert24: 0.9608366048447505, chAmt: 0, chPct: 0 },
+      { label: "Accumulated Losses (Retained Earnings)", y25: -933761, y24: -1083275, vert25: -0.11091925589053007, vert24: -0.128129186723414, chAmt: 149514, chPct: -0.1380203549421892 }
+    ],
+    totalEquity: { label: "Total Equity", y25: 7189683, y24: 7040169, vert25: 0.8540454018199453, vert24: 0.8327074181213365, chAmt: 149514, chPct: 0.021237274275660144 },
+
+    nonCurrentLiabilities: [
+      { label: "Lease Liability (Long Term)", y25: 159992, y24: 139212, vert25: 0.01900507044997348, vert24: 0.016465920788479298, chAmt: 20780, chPct: 0.14926874120047123 },
+      { label: "Deferred Tax Liability", y25: 211154, y24: 206397, vert25: 0.025082483160368645, vert24: 0.024412526599573034, chAmt: 4757, chPct: 0.02304781561747506 }
+    ],
+    totalNonCurrentLiabilities: { label: "Total Non-Current Liabilities", y25: 371146, y24: 345609, vert25: 0.044087553610342126, vert24: 0.04087844738805233, chAmt: 25537, chPct: 0.07388985819235032 },
+    currentLiabilities: [
+      { label: "Trade and Other Payables", y25: 857537, y24: 1034616, vert25: 0.10186478760474842, vert24: 0.12237382626852064, chAmt: -177079, chPct: -0.17115432198999436 },
+      { label: "Lease Liability (Current Term)", y25: 19, y24: 16, vert25: 0.0000022569649641825599, vert24: 0.0000018924714292996922, chAmt: 3, chPct: 0.1875 },
+      { label: "Current Tax Liability", y25: 0, y24: 34143, vert25: 0, vert24: 0.004038415750661212, chAmt: -34143, chPct: -1 }
+    ],
+    totalCurrentLiabilities: { label: "Total Current Liabilities", y25: 857556, y24: 1068775, vert25: 0.1018670445697126, vert24: 0.12641413449061115, chAmt: -211219, chPct: -0.1976271900072513 },
+    totalLiabilities: { label: "Total Liabilities", y25: 1228702, y24: 1414384, vert25: 0.1459545981800547, vert24: 0.16729258187866347, chAmt: -185682, chPct: -0.13128117965135352 },
+    totalEquityAndLiabilities: { label: "Total Equity and Liabilities", y25: 8418385, y24: 8454553, vert25: 1, vert24: 1, chAmt: -36168, chPct: -0.004277931665931954 },
+
+    notes: {
+      marketPricePerShare: { y25: 1.08, y24: 1.08 },
+      dividendsPaid: { y25: 182874, y24: 0 },
+      commonSharesIssued: { y25: 8123444, y24: 8123444 },
+      earningsPerShare: { y25: 0.05, y24: 0.04 },
+      tangibleAssetsPerShare: { y25: 0.94, y24: 0.92 },
+      dividendPerShare: { y25: 0.04, y24: 0.03 },
+      averageTotalAssets: { y25: 8436469, y24: 8138973.5 },
+      averageShareholdersEquity: { y25: 7114926, y24: 6874290 },
+      averageInventory: { y25: 2650648, y24: 2812015 }
+    }
+  },
+
+  incomeStatement: {
+    lineItems: [
+      { label: "Revenue", y25: 4273469, y24: 4330027, chAmt: -56558, chPct: -0.013061812316643754, vert25: 1, vert24: 1 },
+      { label: "Cost of Sales", y25: 2358579, y24: 2301604, chAmt: 56975, chPct: 0.024754475574425488, vert25: 0.5519120414819904, vert24: 0.5315449534148401 },
+      { label: "Gross Profit", y25: 1914890, y24: 2028423, chAmt: -113533, chPct: -0.05597106717878864, vert25: 0.4480879585180096, vert24: 0.46845504658515985 },
+      { label: "Distribution Expenses", y25: 97446, y24: 108189, chAmt: -10743, chPct: -0.09929844993483626, vert25: 0.02280255221226596, vert24: 0.024985756439855917 },
+      { label: "Administration and other Operating Expenses", y25: 1319922, y24: 1373568, chAmt: -53646, chPct: -0.03905594772155437, vert25: 0.3088642973659105, vert24: 0.31721926907153236 },
+      { label: "Profit Before Income Tax", y25: 497522, y24: 546666, chAmt: -49144, chPct: -0.08989767060691538, vert25: 0.11642110893983319, vert24: 0.1262500210737716 },
+      { label: "Income Tax Expense", y25: 119431, y24: 214908, chAmt: -95477, chPct: -0.4442691756472537, vert25: 0.02794708467523691, vert24: 0.04963202307976371 },
+      { label: "Net Profit After Income Tax", y25: 378091, y24: 331758, chAmt: 46333, chPct: 0.13965902856901719, vert25: 0.08847402426459627, vert24: 0.07661799799400788 },
+      { label: "Total Comprehensive Income for the Year", y25: 378091, y24: 331758, chAmt: 46333, chPct: 0.13965902856901719, vert25: 0.08847402426459627, vert24: 0.07661799799400788 }
+    ],
+    notes: {
+      netOperatingIncome: { y25: 509004, y24: 536631 },
+      debtService: { y25: 11500, y24: 10050 }
+    }
+  },
+
+  cashFlow: {
+    operating: [
+      { label: "Cash receipts in the course of operations", y25: 4273357, y24: 4331476, chAmt: -58119, chPct: -0.013417828010590386 },
+      { label: "Cash payments in the course of operations", y25: -3524913, y24: -3547818, chAmt: 22905, chPct: 0.006456080892537328 },
+      { label: "Income tax paid", y25: -168687, y24: -73531, chAmt: 95156, chPct: 1.2940936475772122 },
+      { label: "Interest paid on lease liability", y25: -11482, y24: -10035, chAmt: 1447, chPct: 0.1441953163926258 }
+    ],
+    operatingTotal: { label: "Cash flows from operating activities", y25: 568275, y24: 700092, chAmt: -131817, chPct: -0.18828525393805384 },
+    investing: [
+      { label: "Purchase of property, plant and equipment", y25: -132516, y24: -32219, chAmt: -100297, chPct: 3.1129768149228716 },
+      { label: "Proceeds from sale of property, plant and equipment", y25: 22250, y24: 0, chAmt: 22250, chPct: null },
+      { label: "Proceeds from insurance", y25: 6000, y24: 0, chAmt: 6000, chPct: null }
+    ],
+    investingTotal: { label: "Cash flows used in investing activities", y25: -104266, y24: -32219, chAmt: -72047, chPct: 2.2361649958099257 },
+    financing: [
+      { label: "Principal element of lease payment", y25: -18, y24: -15, chAmt: -3, chPct: 0.2 },
+      { label: "Dividend paid", y25: -182874, y24: 0, chAmt: -182874, chPct: null }
+    ],
+    financingTotal: { label: "Cash flows used in financing activities", y25: -182892, y24: -15, chAmt: -182877, chPct: null },
+    netIncrease: { label: "Net increase in cash held", y25: 281117, y24: 667858, chAmt: -386741, chPct: -0.5790766899550503 },
+    openingCash: { label: "Cash and cash equivalents, 1 January", y25: 1684834, y24: 926976, chAmt: 757858, chPct: 0.8175594621651477 },
+    closingCash: { label: "Cash and cash equivalents, 31 December", y25: 1965951, y24: 1594834, chAmt: 371117, chPct: 0.23269945336003622 }
+  },
+
+  ratioCategories: ["Liquidity", "Efficiency", "Solvency", "Profitability", "Investment", "Cash Flow"],
+
+  ratios: [
+    { name: "Current Ratio", category: "Liquidity", formula: "Current Assets ÷ Current Liabilities", y25: 5.516796570719579, y24: 4.467951626862529, chPct: 0.23474850030853328, type: "ratio", tier: "positive", status: "Strengthened",
+      interp: "The company's current ratio increased significantly, meaning for every dollar of short-term obligations, the company has $5.52 worth of current assets — clearly above the 2:1 rule of thumb." },
+    { name: "Quick Ratio", category: "Liquidity", formula: "(Cash + Receivables) ÷ Current Liabilities", y25: 2.3250854754674912, y24: 1.7538228345535778, chPct: 0.32572425769523294, type: "ratio", tier: "positive", status: "Strengthened",
+      interp: "The sharp increase in the acid-test ratio reflects a surge in cash alongside near-zero trade receivables — now only $27,940 versus $189,608 the previous year. Even excluding inventories, PGI is more than twice covered for its short-term obligations, indicating very strong immediate liquidity." },
+    { name: "Accounts Receivable Turnover & Average Collection Period", category: "Liquidity", type: "na",
+      interp: "These two ratios could not be calculated because the company does not publicly disclose the split between credit sales and cash sales in its financial statements. Without knowing the amounts, it isn't possible to accurately compute either ratio. Worth noting: the significant decrease in trade receivables could itself suggest a shift toward cash sales, as also highlighted in the annual reports." },
+
+    { name: "Inventory Turnover", category: "Efficiency", formula: "Cost of Sales ÷ Average Inventory Balance", y25: 1.61223557409358, y24: 1.5398306908035697, chPct: 0.047021327554021844, type: "ratio", suffix: "×", tier: "positive", status: "Modest gain",
+      interp: "Inventory turnover increased modestly, suggesting stock is moving marginally faster than the previous year. At 1.61 times, though, turnover remains low — consistent with the long manufacturing lead times and bespoke nature of Pacific Green Industries' furniture products." },
+    { name: "Average Payment Period", category: "Efficiency", type: "na",
+      interp: "This ratio faces a similar limitation to the receivables ratio: the company does not disclose its split between cash and credit purchasing volumes, so the average time taken to pay suppliers can't be reliably computed." },
+    { name: "Total Asset Turnover", category: "Efficiency", formula: "Revenue ÷ Average Total Assets", y25: 0.5065471111195928, y24: 0.532011438543202, chPct: -0.047864247981843584, type: "ratio", suffix: "×", tier: "neutral", status: "Immaterial dip",
+      interp: "Total asset turnover declined slightly as the company generated marginally less revenue per dollar of assets (51 cents versus 53 cents in 2024), reflecting a dip in revenue against a relatively stable asset base. For a furniture manufacturer like PGI this ratio is expected to sit below 1, and the decline is considered immaterial." },
+    { name: "Fixed Asset Turnover", category: "Efficiency", formula: "Revenue ÷ Average Fixed Assets", y25: 1.2390601804601966, y24: 1.2287414162447683, chPct: 0.008397832187478574, type: "ratio", suffix: "×", tier: "positive", status: "Stable, edging up",
+      interp: "Fixed asset turnover was relatively stable, increasing only 0.8% during the year as revenue generated per dollar of fixed assets held virtually flat at 1.24 — PGI is extracting consistent productivity from its facilities. The marginal improvement is encouraging given the increased capital expenditure during the year." },
+
+    { name: "Equity Ratio", category: "Solvency", formula: "Total Equity ÷ Total Assets", y25: 0.8540454018199453, y24: 0.8327074181213365, chPct: 0.025624827201310586, type: "percent", tier: "positive", status: "Improved",
+      interp: "PGI's equity ratio has improved, confirming that shareholders' funds now finance 85 cents of every dollar of assets, up from 83 cents in 2024. This points to retained-profit accumulation and the continued absence of borrowings, maintaining the company's conservative capital structure." },
+    { name: "Capitalisation Ratio", category: "Solvency", formula: "Total Assets ÷ Total Equity", y25: 1.1708979380592996, y24: 1.2009019953924402, chPct: -0.02498460111504406, type: "ratio", suffix: "×", tier: "positive", status: "More equity-funded",
+      interp: "The capitalisation ratio declined slightly, highlighting growth in equity relative to total assets. A ratio closer to 1 means the company is increasingly funded by its own equity — a positive metric for the business." },
+    { name: "Debt Ratio", category: "Solvency", formula: "Total Liabilities ÷ Total Assets", y25: 0.1459545981800547, y24: 0.16729258187866347, chPct: -0.12754889343560433, type: "percent", tier: "positive", status: "Lower gearing",
+      interp: "Total liabilities as a proportion of assets decreased significantly (12.8%), driven primarily by reduced trade payables and clearance of the current tax liability. Pacific Green Industries remains one of the lowest-geared companies on the South Pacific Stock Exchange." },
+    { name: "Times Interest Earned Ratio", category: "Solvency", formula: "(Profit Before Income Tax + Finance Cost) ÷ Finance Costs", y25: 44.33060442431632, y24: 55.47593423019432, chPct: -0.2009038686871152, type: "ratio", suffix: "×", tier: "neutral", status: "Still ample cover",
+      interp: "Interest cover fell 20% as profit before tax declined and interest costs on lease liabilities ticked up slightly. The company still generates far more than enough operating profit to meet its lease interest obligations, so this decline isn't a major concern for stakeholders or investors." },
+    { name: "Debt to Equity Ratio", category: "Solvency", formula: "Total Liabilities ÷ Total Shareholders' Equity", y25: 0.1708979380592997, y24: 0.20090199539244016, chPct: -0.14934673632549444, type: "ratio", suffix: "×", tier: "positive", status: "Lower leverage",
+      interp: "For every dollar of equity, the company now carries just 17 cents of liabilities, down from 20 cents. The declining trend reinforces the balance sheet's strength relative to its obligations — though a ratio this low can also suggest an overly conservative management style that leaves growth opportunities on the table." },
+    { name: "Debt Service Coverage Ratio", category: "Solvency", formula: "Net Operating Income ÷ Debt Service", y25: 44.261217391304349, y24: 53.396119402985072, chPct: -0.17107801304321082, type: "ratio", suffix: "×", tier: "neutral", status: "Comfortably adequate",
+      interp: "The coverage ratio fell in line with lower net operating income ($509,004 versus $536,631 in 2024). Any ratio above 1.25 is considered adequate, which makes this decline a non-issue for the company." },
+
+    { name: "Operating Profit Margin", category: "Profitability", formula: "Profit Before Tax and Interest ÷ Revenue", y25: 0.11642110893983319, y24: 0.1262500210737716, chPct: -0.0778527563824728, type: "percent", tier: "neutral", status: "Softened",
+      interp: "Operating margin fell slightly, consistent with the gross-margin decrease, and was partially offset by lower operating expenses. At 11.6%, the company still earns a healthy operating return relative to its revenue base." },
+    { name: "Gross Profit Margin", category: "Profitability", formula: "Gross Profit ÷ Revenue", y25: 0.4480879585180096, y24: 0.46845504658515985, chPct: -0.04347714517245094, type: "percent", tier: "watch", status: "Under pressure",
+      interp: "Gross margin lowered by 4.3% and is the most significant concern in the company's profitability profile, as cost of sales rose while revenue stayed relatively constant. This reflects inflationary pressure on raw materials, processing, or international freight. If the trend continues without a pricing response, it will erode the foundation of the company's profitability." },
+    { name: "Net Profit Margin", category: "Profitability", formula: "Net Profit ÷ Sales", y25: 0.08847402426459627, y24: 0.07661799799400788, chPct: 0.1547420525333437, type: "percent", tier: "positive", status: "Improved",
+      interp: "Net profit margin improved even though operating profitability was a little shaken. The improvement is largely due to a reduction in income tax expense, most likely from utilising prior-year tax losses. Even though this benefit is unlikely to recur, it's a positive sign for the company today." },
+    { name: "Return on Assets", category: "Profitability", formula: "Net Profit ÷ Total Assets", y25: 0.044912533698565696, y24: 0.039240158527600454, chPct: 0.14455535817918394, type: "percent", tier: "positive", status: "Improved",
+      interp: "Thanks to the increase in net profit, ROA has improved meaningfully despite total assets declining marginally. The company is now generating more profit per dollar of assets deployed — a positive outcome for a capital-intensive furniture manufacturer." },
+    { name: "Return on Equity", category: "Profitability", formula: "Net Profit Margin × Total Asset Turnover × 1 ÷ (1 − Debt Ratio)", y25: 0.038275121975734745, y24: 0.033942529438276005, chPct: 0.12764495189839922, type: "percent", tier: "positive", status: "Grew",
+      interp: "Return on equity grew as net profit improved 13.9% against a moderately growing equity base. At 3.8%, returns to shareholders may look modest, but they reflect the company's conservative, low-debt structure and its recovery from previous years' troughs." },
+
+    { name: "Price Earnings Ratio", category: "Investment", formula: "Market Price Per Share ÷ Earnings Per Share", y25: 21.6, y24: 27, chPct: -0.19999999999999996, type: "ratio", suffix: "×", tier: "positive", status: "Cheaper on earnings",
+      interp: "A 20% decrease in the P/E ratio came as earnings per share grew from $0.04 to $0.05 while the share price held steady at $1.08. This makes the company relatively cheaper on an earnings basis than last year — a positive signal to potential investors if it's sustained." },
+    { name: "Market to Book Ratio", category: "Investment", formula: "Market Price Per Share ÷ Net Tangible Assets Per Share", y25: 1.148936170212766, y24: 1.173913043478261, chPct: -0.02127659574468085, type: "ratio", suffix: "×", tier: "neutral", status: "Slight easing",
+      interp: "The company's shares trade at roughly 1.15 times net tangible value, pointing to a premium tied to the brand. The slight decline reflects equity increasing at a rate faster than the (unchanged) share price." },
+    { name: "Dividend Payout Ratio", category: "Investment", formula: "Dividend Paid ÷ Net Income", y25: 0.4836772099838399, y24: null, chPct: null, type: "percent", tier: "positive", status: "Resumed",
+      interp: "The company paid dividends for the first time after a six-year trough, equivalent to approximately 48% of net profit. This step suggests confidence in sustaining earnings and a willingness to provide direct cash returns to shareholders." },
+    { name: "Dividend Yield", category: "Investment", formula: "Dividend Per Share ÷ Market Price Per Share", y25: 0.037037037037037035, y24: 0.027777777777777776, chPct: 0.3333333333333333, type: "percent", tier: "positive", status: "Higher",
+      interp: "Dividend yield increased 33% to 3.7% as the first dividend payment in multiple years was initiated. The prior year's 2.8% figure was an expected yield rather than an actual payment." },
+
+    { name: "Free Cash Flow", category: "Cash Flow", formula: "Operating Cash Flow − Capital Expenditure", y25: 435759, y24: 667873, chPct: -0.34754212252928324, type: "currency", tier: "neutral", status: "Lower, by design",
+      interp: "Free cash flow saw a significant decline, mainly due to increased capital expenditure as the company reinvested in its production facilities. The reduction is investment-driven rather than operational, and the remaining cash still covers dividend and working-capital needs." },
+    { name: "Cash Flow Adequacy Ratio", category: "Cash Flow", formula: "Operating Cash Flow ÷ (LT Borrowing Repayments + Assets Acquired + Dividends Paid)", y25: 1.8017139704763354, y24: 21.719054414593288, chPct: -0.9170445482531807, type: "ratio", suffix: "×", tier: "neutral", status: "Normalised",
+      interp: "The ratio dropped by 92% because the prior year had almost no capital expenditure and no dividends, making the denominator unusually small and inflating that year's figure. In 2025 the ratio normalised at 1.80× — the company generates 80% more operating cash than it needs to cover its outflows." },
+    { name: "Repayment of Long Term Borrowings Ratio", category: "Cash Flow", formula: "Operating Cash Flow ÷ Repayment of Long Term Borrowings", y25: 31570.833333333332, y24: 46672.8, chPct: -0.3235710449483783, type: "special", tier: "neutral", status: "Minimal debt confirmed",
+      interp: "This ratio is extraordinarily high in both years because the company's lease payments are very low. It confirms PGI carries no material long-term debt repayments relative to its operating cash inflows." },
+    { name: "Dividend Payment Ratio", category: "Cash Flow", formula: "Dividends Paid ÷ Operating Cash Flow", y25: 0.32180546390391973, y24: 0, chPct: null, type: "percent", tier: "positive", status: "New, sustainable",
+      interp: "The company now directs 32% of its operating cash flow toward dividend payments. Worth noting: this is a sustainable payout level, meaning cash flow remains comfortably above the threshold needed to also fund capital expenditure and reserves." },
+    { name: "Reinvestment Ratio", category: "Cash Flow", formula: "Purchase of PP&E ÷ Operating Cash Flow", y25: 0.233189916853636, y24: 0.046021094370454166, chPct: 4.067022417514378, type: "percent", tier: "positive", status: "Sharply higher",
+      interp: "The reinvestment ratio jumped 407% as capital expenditure rose to roughly four times its prior level, reflecting the company catching up on deferred investment. At a sustainable 23.3%, PGI is now directing a more adequate share of cash into its asset base, making 2024's 4.6% look low by comparison." },
+    { name: "Debt Coverage", category: "Cash Flow", formula: "Non-Current Liabilities ÷ Operating Cash Flow", y25: 0.6531098499846025, y24: 0.4936622615313416, chPct: 0.3229892193068478, type: "percent", tier: "neutral", status: "Rising, still low",
+      interp: "Non-current liabilities now represent 65 cents for every dollar of operating cash flow earned. The move from 49 cents to 65 cents isn't alarming, since the ratio remains comfortably below 1.0 — operating cash flow still exceeds non-current liabilities." },
+    { name: "Cash Flow to Revenue", category: "Cash Flow", formula: "Operating Cash Flow ÷ Revenue", y25: 0.13297744759585245, y24: 0.1616830564797864, chPct: -0.17754246801688042, type: "percent", tier: "neutral", status: "Softer conversion",
+      interp: "For every dollar of revenue, the company converted 13 cents into operating cash, down from 16 cents last year. This highlights the higher tax payment made in 2025 rather than decreased trade, since revenue and operating costs moved in step with one another." },
+    { name: "Operations Index", category: "Cash Flow", formula: "Operating Cash Flow ÷ Profit", y25: 1.5030111798482375, y24: 2.1102490369486193, chPct: -0.28775649056968006, type: "ratio", suffix: "×", tier: "neutral", status: "Worth monitoring",
+      interp: "The operations index declined 29%, though it remains above 1.0, confirming operating cash generation still exceeds net profit. The general rule of thumb is to stay above 1.0 — a continued decline toward it would warrant monitoring." },
+    { name: "Cash Flow Return on Assets", category: "Cash Flow", formula: "Operating Cash Flow ÷ Average Total Assets", y25: 0.0673593419237361, y24: 0.08601723546587293, chPct: -0.21690877928225547, type: "percent", tier: "neutral", status: "Lower, still positive",
+      interp: "Cash generated per dollar of assets declined as operating cash flow fell against a stable asset base. At 6.7%, cash returns sit below 2024's level, but remain positive." }
+  ]
+};
+
+/* ============================================================================
+   FORMATTERS
+   ============================================================================ */
+const fmt = {
+  currency(v, {abbreviate=false, sign=false} = {}){
+    if (v === null || v === undefined || Number.isNaN(v)) return '—';
+    const neg = v < 0;
+    const abs = Math.abs(v);
+    let out;
+    if (abbreviate && abs >= 1000000) out = '$' + (abs/1000000).toFixed(2).replace(/\.00$/,'') + 'M';
+    else if (abbreviate && abs >= 1000) out = '$' + (abs/1000).toFixed(0) + 'K';
+    else out = '$' + Math.round(abs).toLocaleString('en-US');
+    if (neg) out = '(' + out + ')';
+    else if (sign) out = '+' + out;
+    return out;
+  },
+  number(v, decimals=2){
+    if (v === null || v === undefined || Number.isNaN(v)) return '—';
+    return v.toLocaleString('en-US', {minimumFractionDigits: decimals, maximumFractionDigits: decimals});
+  },
+  percent(v, {decimals=1, sign=false} = {}){
+    if (v === null || v === undefined || Number.isNaN(v)) return '—';
+    const out = (v*100).toFixed(decimals) + '%';
+    return (sign && v > 0) ? '+' + out : out;
+  },
+  ratioX(v, decimals=2){
+    if (v === null || v === undefined || Number.isNaN(v)) return '—';
+    if (Math.abs(v) >= 1000) return v.toLocaleString('en-US', {maximumFractionDigits:0}) + '×';
+    return v.toFixed(decimals) + '×';
+  },
+  changePct(v){
+    if (v === null || v === undefined || Number.isNaN(v)) return {text:'—', cls:'neutral'};
+    if (Math.abs(v) > 10) return {text: (v>0?'+':'') + 'n/m', cls: v>0?'positive':'watch'};
+    const text = (v>0?'+':'') + (v*100).toFixed(1) + '%';
+    return {text, cls: v>0?'positive':(v<0?'watch':'neutral')};
+  },
+  ratioValue(item){
+    if (item.type === 'percent') return fmt.percent(item.y25, {decimals: item.y25 !== null && Math.abs(item.y25) < 0.1 ? 1 : 1});
+    if (item.type === 'currency') return fmt.currency(item.y25);
+    if (item.type === 'special') return item.y25.toLocaleString('en-US',{maximumFractionDigits:0}) + '×';
+    return item.y25.toFixed(2) + (item.suffix || '×');
+  },
+  ratioPrior(item){
+    if (item.y24 === null || item.y24 === undefined) return 'n/a in 2024';
+    if (item.type === 'percent') return fmt.percent(item.y24) + ' in 2024';
+    if (item.type === 'currency') return fmt.currency(item.y24) + ' in 2024';
+    if (item.type === 'special') return item.y24.toLocaleString('en-US',{maximumFractionDigits:0}) + '× in 2024';
+    return item.y24.toFixed(2) + (item.suffix || '×') + ' in 2024';
+  }
+};
+
+function svgEl(tag, attrs={}, children=[]){
+  const ns = 'http://www.w3.org/2000/svg';
+  const el = document.createElementNS(ns, tag);
+  for (const k in attrs) el.setAttribute(k, attrs[k]);
+  children.forEach(c => el.appendChild(c));
+  return el;
+}
+function el(tag, attrs={}, children=[]){
+  const e = document.createElement(tag);
+  for (const k in attrs){
+    if (k === 'class') e.className = attrs[k];
+    else if (k === 'html') e.innerHTML = attrs[k];
+    else if (k.startsWith('on') && typeof attrs[k] === 'function') e.addEventListener(k.slice(2), attrs[k]);
+    else e.setAttribute(k, attrs[k]);
+  }
+  (Array.isArray(children) ? children : [children]).forEach(c=>{
+    if (c === null || c === undefined) return;
+    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  });
+  return e;
+}
+/* data layer ready */
+
+/* ============================================================================
+   CHART BUILDERS — all pure functions of data, all hand-drawn SVG
+   ============================================================================ */
+const PALETTE = {
+  a: '#cd9455', // timber
+  b: '#93a97c', // green
+  c: '#7d8fae', // slate-blue (third segment, kept muted/cool for contrast)
+  d: '#c06f4b', // rust
+};
+
+function stackedCompositionChart({ groups, colorKeys, width=380, height=230 }){
+  // groups: [{label, segments:[{label,value}]}]  values are 0..1 proportions
+  const svg = svgEl('svg', {viewBox:`0 0 ${width} ${height}`, class:'svg-chart', role:'img', 'aria-label':'Composition chart'});
+  const padL = 34, padB = 26, padT = 10;
+  const chartH = height - padB - padT;
+  const barW = 74;
+  const gap = (width - padL*2 - barW*2) ;
+  const xs = [padL, padL + barW + gap];
+
+  // gridlines at 0/25/50/75/100
+  [0,0.25,0.5,0.75,1].forEach(p=>{
+    const y = padT + chartH*(1-p);
+    svg.appendChild(svgEl('line',{x1:padL-8,x2:width-8,y1:y,y2:y,class:'chart-gridline'}));
+    const t = svgEl('text',{x:padL-12,y:y+3,'text-anchor':'end',class:'chart-axis-label'});
+    t.textContent = Math.round(p*100)+'%';
+    svg.appendChild(t);
+  });
+
+  groups.forEach((g,gi)=>{
+    let yCursor = padT + chartH;
+    g.segments.forEach((seg,si)=>{
+      const segH = seg.value * chartH;
+      yCursor -= segH;
+      const colorVar = `var(--chart-${colorKeys[si]})`;
+      svg.appendChild(svgEl('rect',{
+        x:xs[gi], y:yCursor, width:barW, height:Math.max(segH,0.4),
+        fill: colorKeys[si]==='a'?'var(--timber)':colorKeys[si]==='b'?'var(--green)':'var(--muted-slate)',
+        opacity: colorKeys[si]==='c' ? 0.85: 1,
+        rx: 3
+      }));
+      if (segH > 20){
+        const txt = svgEl('text',{x:xs[gi]+barW/2, y:yCursor+segH/2+4, 'text-anchor':'middle', class:'chart-value-label', fill: (colorKeys[si]==='a') ? '#1c1509' : '#181405'});
+        txt.textContent = Math.round(seg.value*100)+'%';
+        svg.appendChild(txt);
+      }
+    });
+    const lbl = svgEl('text',{x:xs[gi]+barW/2, y:height-8, 'text-anchor':'middle', class:'chart-bar-label', style:'font-weight:600;'});
+    lbl.textContent = g.label;
+    svg.appendChild(lbl);
+  });
+  return svg;
+}
+
+function groupedColumnChart({ groups, width=560, height=260, currency=true }){
+  // groups: [{label, y25, y24}]
+  const svg = svgEl('svg', {viewBox:`0 0 ${width} ${height}`, class:'svg-chart', role:'img', 'aria-label':'Comparison chart'});
+  const padL = 12, padR = 12, padT = 16, padB = 34;
+  const chartW = width - padL - padR, chartH = height - padT - padB;
+  const maxVal = Math.max(...groups.map(g=>Math.max(g.y25,g.y24))) * 1.14;
+  const groupW = chartW / groups.length;
+  const barW = Math.min(30, groupW*0.28);
+
+  [0,0.25,0.5,0.75,1].forEach(p=>{
+    const y = padT + chartH*(1-p);
+    svg.appendChild(svgEl('line',{x1:padL,x2:width-padR,y1:y,y2:y,class:'chart-gridline'}));
+  });
+
+  groups.forEach((g,i)=>{
+    const cx = padL + groupW*i + groupW/2;
+    const h25 = (g.y25/maxVal)*chartH, h24 = (g.y24/maxVal)*chartH;
+    const x24 = cx - barW - 3, x25 = cx + 3;
+    // 2024 bar
+    svg.appendChild(svgEl('rect',{x:x24,y:padT+chartH-h24,width:barW,height:Math.max(h24,1),fill:'var(--text-tertiary)',opacity:0.45,rx:2}));
+    // 2025 bar
+    svg.appendChild(svgEl('rect',{x:x25,y:padT+chartH-h25,width:barW,height:Math.max(h25,1),fill:'var(--timber)',rx:2}));
+    // value labels
+    const t25 = svgEl('text',{x:x25+barW/2,y:padT+chartH-h25-7,'text-anchor':'middle',class:'chart-value-label',fill:'var(--timber-bright)'});
+    t25.textContent = currency ? fmt.currency(g.y25,{abbreviate:true}) : fmt.number(g.y25,1);
+    svg.appendChild(t25);
+    const t24 = svgEl('text',{x:x24+barW/2,y:padT+chartH-h24-7,'text-anchor':'middle',class:'chart-value-label',fill:'var(--text-tertiary)'});
+    t24.textContent = currency ? fmt.currency(g.y24,{abbreviate:true}) : fmt.number(g.y24,1);
+    svg.appendChild(t24);
+    // group label
+    const lbl = svgEl('text',{x:cx,y:height-12,'text-anchor':'middle',class:'chart-bar-label'});
+    lbl.textContent = g.label;
+    svg.appendChild(lbl);
+  });
+  return svg;
+}
+
+function divergingBarChart({ rows, width=560, height=230 }){
+  // rows: [{label, y25, y24}] values can be negative
+  const svg = svgEl('svg', {viewBox:`0 0 ${width} ${height}`, class:'svg-chart', role:'img', 'aria-label':'Cash flow comparison'});
+  const padL = 108, padR = 60, padT = 10, padB = 10;
+  const chartW = width - padL - padR;
+  const rowH = (height - padT - padB) / rows.length;
+  const maxAbs = Math.max(...rows.flatMap(r=>[Math.abs(r.y25),Math.abs(r.y24)])) * 1.18;
+  const cx = padL + chartW/2;
+  const scale = (chartW/2) / maxAbs;
+
+  svg.appendChild(svgEl('line',{x1:cx,x2:cx,y1:padT,y2:height-padB,stroke:'var(--border)','stroke-width':1}));
+
+  rows.forEach((r,i)=>{
+    const yTop = padT + rowH*i;
+    const barH = Math.min(14, rowH*0.32);
+    const y25y = yTop + rowH*0.36 - barH/2;
+    const y24y = yTop + rowH*0.68 - barH/2;
+    [[r.y25,y25y,'var(--timber)',true],[r.y24,y24y,'var(--text-tertiary)',false]].forEach(([val,y,color,isCurrent])=>{
+      const w = Math.abs(val)*scale;
+      const x = val >= 0 ? cx : cx - w;
+      svg.appendChild(svgEl('rect',{x, y, width:Math.max(w,1), height:barH, fill:color, opacity:isCurrent?1:0.5, rx:2}));
+      const tx = val >= 0 ? cx + w + 6 : cx - w - 6;
+      const t = svgEl('text',{x:tx, y:y+barH-2, 'text-anchor': val>=0 ? 'start':'end', class:'chart-value-label', fill: isCurrent ? 'var(--timber-bright)' : 'var(--text-tertiary)'});
+      t.textContent = fmt.currency(val,{abbreviate:true});
+      svg.appendChild(t);
+    });
+    const lbl = svgEl('text',{x:padL-12,y:yTop+rowH/2+4,'text-anchor':'end',class:'chart-bar-label'});
+    lbl.textContent = r.label;
+    svg.appendChild(lbl);
+  });
+  return svg;
+}
+
+function waterfallChart({ steps, width=640, height=280 }){
+  // steps: [{label, value, kind:'start'|'add'|'sub'|'end'}]
+  const svg = svgEl('svg', {viewBox:`0 0 ${width} ${height}`, class:'svg-chart', role:'img', 'aria-label':'Profit bridge'});
+  const padL = 8, padR = 8, padT = 22, padB = 46;
+  const chartW = width - padL - padR, chartH = height - padT - padB;
+  let running = 0;
+  const points = steps.map(s=>{
+    let from = running, to;
+    if (s.kind==='start' || s.kind==='end'){ to = s.value; running = s.value; }
+    else { to = running + (s.kind==='sub' ? -s.value : s.value); running = to; }
+    return {...s, from, to};
+  });
+  const maxVal = Math.max(...points.flatMap(p=>[p.from,p.to])) * 1.12;
+  const n = steps.length;
+  const slot = chartW / n;
+  const barW = Math.min(58, slot*0.56);
+  const yFor = v => padT + chartH*(1 - v/maxVal);
+
+  // baseline
+  svg.appendChild(svgEl('line',{x1:padL,x2:width-padR,y1:yFor(0),y2:yFor(0),class:'chart-gridline'}));
+
+  points.forEach((p,i)=>{
+    const cx = padL + slot*i + slot/2;
+    const yTop = yFor(Math.max(p.from,p.to));
+    const yBot = yFor(Math.min(p.from,p.to));
+    let color = 'var(--timber)';
+    if (p.kind==='sub') color = 'var(--rust)';
+    if (p.kind==='start' || p.kind==='end') color = 'var(--green)';
+    svg.appendChild(svgEl('rect',{x:cx-barW/2, y:yTop, width:barW, height:Math.max(yBot-yTop,2), fill:color, opacity: (p.kind==='start'||p.kind==='end') ? 1 : 0.9, rx:3}));
+    // connector
+    if (i < points.length-1){
+      const y = yFor(p.to);
+      svg.appendChild(svgEl('line',{x1:cx+barW/2, x2:cx+slot-slot/2+barW/2, y1:y, y2:y, stroke:'var(--border)', 'stroke-dasharray':'2,3'}));
+    }
+    // value label
+    const labY = yTop - 8;
+    const t = svgEl('text',{x:cx, y: labY, 'text-anchor':'middle', class:'chart-value-label', fill: color});
+    t.textContent = (p.kind==='sub' ? '−' : (p.kind==='add' ? '' : '')) + fmt.currency(p.value,{abbreviate:true});
+    svg.appendChild(t);
+    // category label
+    const lbl = svgEl('text',{x:cx, y:height-26, 'text-anchor':'middle', class:'chart-bar-label'});
+    lbl.textContent = p.label;
+    svg.appendChild(lbl);
+    const lbl2 = svgEl('text',{x:cx, y:height-12, 'text-anchor':'middle', class:'chart-bar-label'});
+    if (p.label2) lbl2.textContent = p.label2;
+    svg.appendChild(lbl2);
+  });
+  return svg;
+}
+
+/* ============================================================================
+   RESPONSIVE TABLE BUILDER
+   ============================================================================ */
+function buildResponsiveTable({ caption, rows, showVertical=false, yearCurrent, yearPrior }){
+  const wrap = el('div');
+
+  // ---- Desktop table ----
+  const tblWrap = el('div', {class:'data-table-wrap'});
+  const table = el('table', {class:'data-table'});
+  if (caption) table.appendChild(el('caption', {}, caption));
+  const thead = el('thead');
+  const headRow = el('tr');
+  headRow.appendChild(el('th', {}, 'Line item'));
+  headRow.appendChild(el('th', {class:'num'}, `FY${yearCurrent} ($)`));
+  headRow.appendChild(el('th', {class:'num'}, `FY${yearPrior} ($)`));
+  headRow.appendChild(el('th', {class:'num'}, 'Change ($)'));
+  headRow.appendChild(el('th', {class:'num'}, 'Change (%)'));
+  if (showVertical){
+    headRow.appendChild(el('th', {class:'num'}, `% of total ${yearCurrent}`));
+  }
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+  const tbody = el('tbody');
+
+  rows.forEach(r=>{
+    if (r.isMarker){
+      const tr = el('tr', {class:'section-marker'});
+      const colCount = 5 + (showVertical?1:0);
+      const td = el('td', {colspan:String(colCount)}, r.label);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      return;
+    }
+    const tr = el('tr', {class: (r.rowClass||'') + (r.indent ? ' row-indent':'')});
+    tr.appendChild(el('td', {}, r.label));
+    tr.appendChild(el('td', {class:'num'}, r.y25 === null || r.y25 === undefined ? '—' : fmt.currency(r.y25)));
+    tr.appendChild(el('td', {class:'num muted'}, (r.y24 === null || r.y24 === undefined) ? '—' : fmt.currency(r.y24)));
+    tr.appendChild(el('td', {class:'num muted'}, (r.chAmt === null || r.chAmt === undefined) ? '—' : fmt.currency(r.chAmt, {sign:r.chAmt>0})));
+    const chg = fmt.changePct(r.chPct);
+    tr.appendChild(el('td', {class:'num ' + (chg.cls==='positive'?'chg-pos':chg.cls==='watch'?'chg-neg':'muted')}, chg.text));
+    if (showVertical){
+      tr.appendChild(el('td', {class:'num muted'}, r.vert25!==undefined && r.vert25!==null ? fmt.percent(r.vert25) : '—'));
+    }
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  tblWrap.appendChild(table);
+  wrap.appendChild(tblWrap);
+
+  // ---- Mobile cards ----
+  const mc = el('div', {class:'mobile-cards'});
+  if (caption) mc.appendChild(el('div', {class:'mc-caption'}, caption));
+  rows.forEach(r=>{
+    if (r.isMarker){
+      mc.appendChild(el('div', {class:'mc-row section-marker'}, el('div',{class:'mc-label'},r.label)));
+      return;
+    }
+    const chg = fmt.changePct(r.chPct);
+    const row = el('div', {class:'mc-row ' + (r.rowClass||'')});
+    row.appendChild(el('div', {class:'mc-label'}, r.label));
+    const vals = el('div', {class:'mc-vals'});
+    const v25 = el('div', {class:'mc-val-item'}, [el('span',{class:'mc-yr'},`FY${yearCurrent}`), el('span',{},fmt.currency(r.y25))]);
+    const v24 = el('div', {class:'mc-val-item'}, [el('span',{class:'mc-yr'},`FY${yearPrior}`), el('span',{},(r.y24===null||r.y24===undefined)?'—':fmt.currency(r.y24))]);
+    const vchg = el('div', {class:'mc-val-item'}, [el('span',{class:'mc-yr'},'Change'), el('span',{class: chg.cls==='positive'?'mc-chg-pos':chg.cls==='watch'?'mc-chg-neg':''}, chg.text)]);
+    vals.appendChild(v25); vals.appendChild(v24); vals.appendChild(vchg);
+    row.appendChild(vals);
+    mc.appendChild(row);
+  });
+  wrap.appendChild(mc);
+
+  return wrap;
+}
+
+/* ============================================================================
+   SECTION: HERO
+   ============================================================================ */
+function renderHero(d){
+  const bs = d.balanceSheet, is = d.incomeStatement;
+  const revenue = is.lineItems.find(x=>x.label==='Revenue');
+  const netProfit = is.lineItems.find(x=>x.label==='Net Profit After Income Tax');
+  const curRatio = d.ratios.find(r=>r.name==='Current Ratio');
+  const debtRatio = d.ratios.find(r=>r.name==='Debt Ratio');
+
+  const kpis = [
+    { label:'Revenue', value: fmt.currency(revenue.y25,{abbreviate:true}), chPct: revenue.chPct, favorable: null },
+    { label:'Net profit', value: fmt.currency(netProfit.y25,{abbreviate:true}), chPct: netProfit.chPct, favorable: true },
+    { label:'Total assets', value: fmt.currency(bs.totalAssets.y25,{abbreviate:true}), chPct: bs.totalAssets.chPct, favorable: null },
+    { label:'Total equity', value: fmt.currency(bs.totalEquity.y25,{abbreviate:true}), chPct: bs.totalEquity.chPct, favorable: true },
+    { label:'Current ratio', value: fmt.ratioX(curRatio.y25), chPct: curRatio.chPct, favorable: true },
+    { label:'Debt ratio', value: fmt.percent(debtRatio.y25), chPct: debtRatio.chPct, favorable: true },
+  ];
+
+  const section = el('section', {class:'hero wrap', id:'overview'});
+  section.appendChild(el('div', {class:'eyebrow fade-up'}, `FY${d.meta.yearCurrent} Financial Analysis · vs FY${d.meta.yearPrior}`));
+  section.appendChild(el('h1', {class:'hero-headline fade-up', style:'animation-delay:.05s'}, ['Stronger foundations, ', el('em',{},'thinner'), ' margins']));
+  section.appendChild(el('p', {class:'hero-sub fade-up', style:'animation-delay:.1s'},
+    `${d.meta.company} enters FY${Number(d.meta.yearCurrent)+1} with sharply improved liquidity and the lowest leverage in years — even as rising input costs quietly compress the gross margin that funds it all.`));
+  section.appendChild(el('div', {class:'hero-currency-note'}, `Figures in ${d.meta.currency} unless noted · ${d.meta.exchange}`));
+
+  const grid = el('div', {class:'kpi-grid fade-up', style:'animation-delay:.15s'});
+  kpis.forEach(k=>{
+    const chg = fmt.changePct(k.chPct);
+    let cls = chg.cls;
+    if (k.favorable === true) cls = 'positive'; // direction already vetted as good news for this KPI
+    if (k.favorable === null) cls = 'neutral';
+    const arrow = k.chPct === null || k.chPct === undefined ? '' : (k.chPct >= 0 ? '▲' : '▼');
+    const tile = el('div', {class:'kpi-tile'}, [
+      el('div', {class:'kpi-label'}, k.label),
+      el('div', {class:'kpi-value'}, k.value),
+      el('div', {class:'kpi-delta ' + cls}, `${arrow} ${chg.text} YoY`)
+    ]);
+    grid.appendChild(tile);
+  });
+  section.appendChild(grid);
+  return section;
+}
+
+/* ============================================================================
+   SECTION: EXECUTIVE SUMMARY
+   ============================================================================ */
+function renderSummary(d){
+  const section = el('section', {class:'section wrap'});
+  const head = el('div', {class:'section-head'}, [
+    el('div', {class:'section-index'}, 'THE YEAR IN BRIEF'),
+    el('h2', {class:'section-title'}, 'Executive summary'),
+  ]);
+  section.appendChild(head);
+
+  const prose = el('div', {class:'prose'});
+  prose.appendChild(el('p', {}, [
+    `Revenue held almost steady at ${fmt.currency(d.incomeStatement.lineItems[0].y25)}, down just 1.3% on FY${d.meta.yearPrior} — but that number masks real pressure underneath. Cost of sales rose 2.5% even as revenue slipped, compressing gross margin from 46.8% to 44.8%. That's `,
+    el('span',{class:'callout-watch'},'the one figure in this report worth watching'),
+    `: if input and freight costs keep climbing without a pricing response, they'll steadily erode the profitability that funds everything else ${d.meta.ticker} does.`
+  ]));
+  prose.appendChild(el('p', {}, [
+    `Net profit still climbed 14.0% to ${fmt.currency(d.incomeStatement.lineItems.find(x=>x.label==='Net Profit After Income Tax').y25)}, but the gain came from below the operating line — a sharply lower income tax expense, most likely the utilisation of tax losses carried forward from prior years. It's a genuine lift to this year's bottom line, just not one likely to repeat, which means next year's result hinges more directly on whether the gross-margin slide is arrested.`
+  ]));
+  prose.appendChild(el('p', {}, [
+    `Where FY${d.meta.yearCurrent} clearly delivers is `,
+    el('span',{class:'callout-good'},'the balance sheet'),
+    `. The current ratio jumped from 4.47:1 to 5.52:1 and the quick ratio from 1.75:1 to 2.33:1, driven by a cash build-up and a near-disappearance of trade receivables. Gearing fell in step — the debt ratio dropped to 14.6% from 16.7% — keeping ${d.meta.ticker} among the least leveraged names on the ${d.meta.exchange}.`
+  ]));
+  prose.appendChild(el('p', {}, [
+    `Capital expenditure nearly quadrupled as the company caught up on deferred investment in its production facilities, which is why free cash flow fell even as operating cash generation stayed healthy. That reinvestment, plus ${d.meta.ticker}'s first dividend in six years — 4 cents a share, a 48% payout ratio — reads as a board more confident in the durability of its earnings than the margin story alone would suggest.`
+  ]));
+  section.appendChild(prose);
+  return section;
+}
+
+/* ============================================================================
+   SECTION: BALANCE SHEET
+   ============================================================================ */
+function renderBalanceSheet(d){
+  const bs = d.balanceSheet;
+  const section = el('section', {class:'section wrap', id:'balance-sheet'});
+  section.appendChild(el('div', {class:'section-head'}, [
+    el('div', {class:'section-index'}, 'SCHEDULE I'),
+    el('h2', {class:'section-title'}, 'Balance Sheet'),
+    el('p', {class:'section-intro'}, `A more liquid, more conservatively financed company. Cash built up while receivables and inventory both eased back, and equity now funds ${fmt.percent(bs.totalEquity.vert25,{decimals:0})} of every dollar on the books.`)
+  ]));
+
+  // composition charts
+  const twoCol = el('div', {class:'two-col'});
+  const assetChart = stackedCompositionChart({
+    groups: [
+      {label:`FY${d.meta.yearPrior}`, segments:[{value:bs.totalNonCurrentAssets.vert24},{value:bs.totalCurrentAssets.vert24}]},
+      {label:`FY${d.meta.yearCurrent}`, segments:[{value:bs.totalNonCurrentAssets.vert25},{value:bs.totalCurrentAssets.vert25}]},
+    ],
+    colorKeys: ['a','b']
+  });
+  const assetCard = el('div', {class:'panel panel-pad'}, [
+    el('div', {class:'chart-card-title'}, 'Where the assets sit'),
+    el('div', {class:'chart-card-sub'}, 'Share of total assets, non-current vs current'),
+    assetChart,
+    el('div', {class:'legend'}, [
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--timber)'}),'Non-current assets']),
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--green)'}),'Current assets']),
+    ])
+  ]);
+
+  const financeChart = stackedCompositionChart({
+    groups: [
+      {label:`FY${d.meta.yearPrior}`, segments:[{value:bs.totalEquity.vert24},{value:bs.totalNonCurrentLiabilities.vert24},{value:bs.totalCurrentLiabilities.vert24}]},
+      {label:`FY${d.meta.yearCurrent}`, segments:[{value:bs.totalEquity.vert25},{value:bs.totalNonCurrentLiabilities.vert25},{value:bs.totalCurrentLiabilities.vert25}]},
+    ],
+    colorKeys: ['b','a','c']
+  });
+  const financeCard = el('div', {class:'panel panel-pad'}, [
+    el('div', {class:'chart-card-title'}, 'How it\u2019s financed'),
+    el('div', {class:'chart-card-sub'}, 'Share of total financing, equity vs liabilities'),
+    financeChart,
+    el('div', {class:'legend'}, [
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--green)'}),'Equity']),
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--timber)'}),'Non-current liabilities']),
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--muted-slate)'}),'Current liabilities']),
+    ])
+  ]);
+  twoCol.appendChild(assetCard); twoCol.appendChild(financeCard);
+  section.appendChild(twoCol);
+
+  // Assets table
+  const assetRows = [
+    ...bs.nonCurrentAssets.map(r=>({...r, indent:true})),
+    {...bs.totalNonCurrentAssets, rowClass:'subtotal'},
+    ...bs.currentAssets.map(r=>({...r, indent:true})),
+    {...bs.totalCurrentAssets, rowClass:'subtotal'},
+    {...bs.totalAssets, rowClass:'total'},
+  ];
+  section.appendChild(el('h3',{style:'font-family:var(--font-display);font-weight:560;font-size:1.05rem;margin:44px 0 16px;'},'Assets'));
+  section.appendChild(buildResponsiveTable({rows:assetRows, showVertical:true, yearCurrent:d.meta.yearCurrent, yearPrior:d.meta.yearPrior}));
+
+  // Equity & liabilities table
+  const eqLiabRows = [
+    ...bs.equity.map(r=>({...r, indent:true})),
+    {...bs.totalEquity, rowClass:'subtotal'},
+    ...bs.nonCurrentLiabilities.map(r=>({...r, indent:true})),
+    {...bs.totalNonCurrentLiabilities, rowClass:'subtotal'},
+    ...bs.currentLiabilities.map(r=>({...r, indent:true})),
+    {...bs.totalCurrentLiabilities, rowClass:'subtotal'},
+    {...bs.totalLiabilities, rowClass:'subtotal'},
+    {...bs.totalEquityAndLiabilities, rowClass:'total'},
+  ];
+  section.appendChild(el('h3',{style:'font-family:var(--font-display);font-weight:560;font-size:1.05rem;margin:32px 0 16px;'},'Equity & Liabilities'));
+  section.appendChild(buildResponsiveTable({rows:eqLiabRows, showVertical:true, yearCurrent:d.meta.yearCurrent, yearPrior:d.meta.yearPrior}));
+
+  // per-share mini stats
+  const n = bs.notes;
+  const mini = el('div', {class:'mini-stats'}, [
+    el('div',{class:'mini-stat'},[el('div',{class:'mini-stat-label'},'Earnings per share'),el('div',{class:'mini-stat-value'},[`$${n.earningsPerShare.y25.toFixed(2)}`, el('span',{class:'prior'},`vs $${n.earningsPerShare.y24.toFixed(2)}`)])]),
+    el('div',{class:'mini-stat'},[el('div',{class:'mini-stat-label'},'Dividend per share'),el('div',{class:'mini-stat-value'},[`$${n.dividendPerShare.y25.toFixed(2)}`, el('span',{class:'prior'},`vs $${n.dividendPerShare.y24.toFixed(2)}`)])]),
+    el('div',{class:'mini-stat'},[el('div',{class:'mini-stat-label'},'Tangible assets / share'),el('div',{class:'mini-stat-value'},[`$${n.tangibleAssetsPerShare.y25.toFixed(2)}`, el('span',{class:'prior'},`vs $${n.tangibleAssetsPerShare.y24.toFixed(2)}`)])]),
+  ]);
+  section.appendChild(mini);
+
+  return section;
+}
+
+/* ============================================================================
+   SECTION: INCOME STATEMENT
+   ============================================================================ */
+function renderIncomeStatement(d){
+  const is = d.incomeStatement;
+  const li = name => is.lineItems.find(x=>x.label===name);
+  const revenue = li('Revenue'), cogs = li('Cost of Sales'), gp = li('Gross Profit'),
+        dist = li('Distribution Expenses'), admin = li('Administration and other Operating Expenses'),
+        pbt = li('Profit Before Income Tax'), tax = li('Income Tax Expense'), np = li('Net Profit After Income Tax');
+
+  const section = el('section', {class:'section wrap', id:'income-statement'});
+  section.appendChild(el('div', {class:'section-head'}, [
+    el('div', {class:'section-index'}, 'SCHEDULE II'),
+    el('h2', {class:'section-title'}, 'Income Statement'),
+    el('p', {class:'section-intro'}, `Revenue was essentially flat, but the path from revenue to profit tells a more layered story — a squeezed gross margin, disciplined cost control below it, and a tax outcome that flattered the final line.`)
+  ]));
+
+  const twoCol = el('div', {class:'two-col'});
+  const bridge = waterfallChart({
+    steps: [
+      {label:'Revenue', label2:`FY${d.meta.yearCurrent}`, value:revenue.y25, kind:'start'},
+      {label:'Cost of', label2:'Sales', value:cogs.y25, kind:'sub'},
+      {label:'Gross', label2:'Profit', value:gp.y25, kind:'end'},
+      {label:'Operating', label2:'Expenses', value:dist.y25+admin.y25, kind:'sub'},
+      {label:'Profit', label2:'Before Tax', value:pbt.y25, kind:'end'},
+      {label:'Income Tax', label2:'Expense', value:tax.y25, kind:'sub'},
+      {label:'Net', label2:'Profit', value:np.y25, kind:'end'},
+    ]
+  });
+  const bridgeCard = el('div', {class:'panel panel-pad'}, [
+    el('div', {class:'chart-card-title'}, `Revenue to profit, FY${d.meta.yearCurrent}`),
+    el('div', {class:'chart-card-sub'}, 'The bridge from top line to bottom line'),
+    bridge,
+    el('div', {class:'legend'}, [
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--green)'}),'Subtotal']),
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--rust)'}),'Deduction']),
+    ])
+  ]);
+
+  const compareChart = groupedColumnChart({
+    groups: [
+      {label:'Revenue', y25:revenue.y25, y24:revenue.y24},
+      {label:'Gross Profit', y25:gp.y25, y24:gp.y24},
+      {label:'Profit Before Tax', y25:pbt.y25, y24:pbt.y24},
+      {label:'Net Profit', y25:np.y25, y24:np.y24},
+    ]
+  });
+  const compareCard = el('div', {class:'panel panel-pad'}, [
+    el('div', {class:'chart-card-title'}, 'Year over year'),
+    el('div', {class:'chart-card-sub'}, `FY${d.meta.yearCurrent} vs FY${d.meta.yearPrior} at each stage`),
+    compareChart,
+    el('div', {class:'legend'}, [
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--timber)'}),`FY${d.meta.yearCurrent}`]),
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--text-tertiary)'}),`FY${d.meta.yearPrior}`]),
+    ])
+  ]);
+  twoCol.appendChild(bridgeCard); twoCol.appendChild(compareCard);
+  section.appendChild(twoCol);
+
+  const rows = is.lineItems.map(r=>{
+    let rowClass = '';
+    if (['Gross Profit','Profit Before Income Tax'].includes(r.label)) rowClass='subtotal';
+    if (r.label==='Net Profit After Income Tax') rowClass='total';
+    if (r.label==='Total Comprehensive Income for the Year') return null;
+    return {...r, rowClass, indent: !rowClass};
+  }).filter(Boolean);
+
+  section.appendChild(el('h3',{style:'font-family:var(--font-display);font-weight:560;font-size:1.05rem;margin:44px 0 16px;'},'Full statement'));
+  section.appendChild(buildResponsiveTable({rows, showVertical:true, yearCurrent:d.meta.yearCurrent, yearPrior:d.meta.yearPrior}));
+  section.appendChild(el('p', {style:'font-size:0.78rem;color:var(--text-tertiary);margin-top:14px;'},
+    `Net operating income (used in the Debt Service Coverage Ratio) was ${fmt.currency(is.notes.netOperatingIncome.y25)} in FY${d.meta.yearCurrent}, against a debt service cost of ${fmt.currency(is.notes.debtService.y25)}.`));
+
+  return section;
+}
+
+/* ============================================================================
+   SECTION: CASH FLOW
+   ============================================================================ */
+function renderCashFlow(d){
+  const cf = d.cashFlow;
+  const section = el('section', {class:'section wrap', id:'cash-flow'});
+  section.appendChild(el('div', {class:'section-head'}, [
+    el('div', {class:'section-index'}, 'SCHEDULE III'),
+    el('h2', {class:'section-title'}, 'Cash Flow Statement'),
+    el('p', {class:'section-intro'}, `Operating cash generation stayed solid even as the company stepped up investment and paid its first dividend in six years — the two moves that explain most of the year's cash movement.`)
+  ]));
+
+  const twoCol = el('div', {class:'two-col'});
+  const diverging = divergingBarChart({
+    rows: [
+      {label:'Operating', y25:cf.operatingTotal.y25, y24:cf.operatingTotal.y24},
+      {label:'Investing', y25:cf.investingTotal.y25, y24:cf.investingTotal.y24},
+      {label:'Financing', y25:cf.financingTotal.y25, y24:cf.financingTotal.y24},
+    ]
+  });
+  const divergingCard = el('div', {class:'panel panel-pad'}, [
+    el('div', {class:'chart-card-title'}, 'Cash flow by activity'),
+    el('div', {class:'chart-card-sub'}, 'Operating, investing and financing, year over year'),
+    diverging,
+    el('div', {class:'legend'}, [
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--timber)'}),`FY${d.meta.yearCurrent}`]),
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--text-tertiary)'}),`FY${d.meta.yearPrior}`]),
+    ])
+  ]);
+
+  const bridge = waterfallChart({
+    steps: [
+      {label:'Opening', label2:'Cash', value:cf.openingCash.y25, kind:'start'},
+      {label:'Operating', label2:'Activities', value:cf.operatingTotal.y25, kind:'add'},
+      {label:'Investing', label2:'Activities', value:Math.abs(cf.investingTotal.y25), kind:'sub'},
+      {label:'Financing', label2:'Activities', value:Math.abs(cf.financingTotal.y25), kind:'sub'},
+      {label:'Closing', label2:'Cash', value:cf.closingCash.y25, kind:'end'},
+    ]
+  });
+  const bridgeCard = el('div', {class:'panel panel-pad'}, [
+    el('div', {class:'chart-card-title'}, `Cash bridge, FY${d.meta.yearCurrent}`),
+    el('div', {class:'chart-card-sub'}, 'How opening cash became closing cash'),
+    bridge,
+    el('div', {class:'legend'}, [
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--green)'}),'Opening / closing']),
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--timber)'}),'Inflow']),
+      el('div',{class:'legend-item'},[el('span',{class:'legend-dot',style:'background:var(--rust)'}),'Outflow']),
+    ])
+  ]);
+  twoCol.appendChild(divergingCard); twoCol.appendChild(bridgeCard);
+  section.appendChild(twoCol);
+
+  const rows = [
+    el_marker('Operating activities'),
+    ...cf.operating.map(r=>({...r, indent:true})),
+    {...cf.operatingTotal, rowClass:'subtotal'},
+    el_marker('Investing activities'),
+    ...cf.investing.map(r=>({...r, indent:true})),
+    {...cf.investingTotal, rowClass:'subtotal'},
+    el_marker('Financing activities'),
+    ...cf.financing.map(r=>({...r, indent:true})),
+    {...cf.financingTotal, rowClass:'subtotal'},
+    {...cf.netIncrease, rowClass:'subtotal'},
+    {...cf.openingCash, rowClass:''},
+    {...cf.closingCash, rowClass:'total'},
+  ].filter(r => r !== null);
+
+  section.appendChild(el('h3',{style:'font-family:var(--font-display);font-weight:560;font-size:1.05rem;margin:44px 0 16px;'},'Full statement'));
+  section.appendChild(buildResponsiveTable({rows, showVertical:false, yearCurrent:d.meta.yearCurrent, yearPrior:d.meta.yearPrior}));
+
+  return section;
+}
+function el_marker(label){
+  return {label, y25:null, y24:null, chAmt:null, chPct:null, rowClass:'section-marker', isMarker:true};
+}
+
+/* ============================================================================
+   SECTION: RATIO ANALYSIS
+   ============================================================================ */
+function ratioCardNode(r, d){
+  if (r.type === 'na'){
+    const card = el('div', {class:'ratio-na'}, [
+      el('strong', {}, r.name + '. '),
+      r.interp
+    ]);
+    return card;
+  }
+  const chg = fmt.changePct(r.chPct);
+  const chgCls = r.tier === 'watch' ? 'watch' : (r.tier === 'positive' ? 'positive' : 'neutral');
+
+  const card = el('div', {class:'ratio-card', 'data-category': r.category});
+  card.appendChild(el('div', {class:'ratio-card-top'}, [
+    el('div', {}, [
+      el('div', {class:'ratio-name'}, r.name),
+      r.formula ? el('div', {class:'ratio-formula'}, r.formula) : null
+    ]),
+    el('div', {class:'status-tag ' + r.tier}, r.status)
+  ]));
+  card.appendChild(el('div', {class:'ratio-values'}, [
+    el('div', {class:'ratio-value-main'}, fmt.ratioValue(r)),
+    el('div', {class:'ratio-value-prior'}, fmt.ratioPrior(r)),
+    r.chPct !== null && r.chPct !== undefined ? el('div', {class:'ratio-value-chg ' + chgCls}, (r.chPct>=0?'▲ ':'▼ ') + chg.text) : null
+  ]));
+  card.appendChild(el('div', {class:'ratio-interp'}, r.interp));
+  return card;
+}
+
+function renderRatios(d){
+  const section = el('section', {class:'section wrap', id:'ratios'});
+  section.appendChild(el('div', {class:'section-head'}, [
+    el('div', {class:'section-index'}, 'SCHEDULE IV'),
+    el('h2', {class:'section-title'}, 'Ratio Analysis'),
+    el('p', {class:'section-intro'}, `${d.ratios.filter(r=>r.type!=='na').length} ratios across six categories, each carrying the interpretation behind the number. Filter by category, or browse everything below.`)
+  ]));
+
+  const categories = ['All', ...d.ratioCategories];
+  const filterBar = el('div', {class:'ratio-filter', role:'tablist'});
+  const grid = el('div', {class:'ratio-grid'});
+
+  function paint(cat){
+    grid.innerHTML = '';
+    const items = cat === 'All' ? d.ratios : d.ratios.filter(r=>r.category===cat);
+    items.forEach(r=> grid.appendChild(ratioCardNode(r, d)));
+  }
+
+  categories.forEach(cat=>{
+    const btn = el('button', {type:'button'}, cat);
+    if (cat==='All') btn.classList.add('active');
+    btn.addEventListener('click', ()=>{
+      filterBar.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      paint(cat);
+    });
+    filterBar.appendChild(btn);
+  });
+
+  section.appendChild(filterBar);
+  section.appendChild(grid);
+  paint('All');
+
+  return section;
+}
+
+/* ============================================================================
+   SECTION: FOOTER
+   ============================================================================ */
+function renderFooter(d){
+  const footer = el('footer', {class:'site-footer'});
+  const wrap = el('div', {class:'wrap footer-row'});
+  wrap.appendChild(el('div', {class:'footer-note'},
+    `Figures sourced from ${d.meta.company}'s FY${d.meta.yearCurrent} financial statements (Balance Sheet, Income Statement, Cash Flow Statement) and accompanying ratio analysis. Prepared for academic purposes; not investment advice.`));
+  wrap.appendChild(el('div', {class:'footer-meta'}, `SOURCE: ${d.meta.sourceLabel} · ${d.meta.generatedNote.toUpperCase()}`));
+  footer.appendChild(wrap);
+  return footer;
+}
+</script>
+
+<script>
+/* ============================================================================
+   STRUCTURAL RATIO METADATA — stable across years, used to auto-classify
+   ratios parsed from a newly uploaded workbook (category, display type, and
+   which direction of change is favorable). The shipped dataset above uses
+   hand-authored tiers/status instead, since those were written by actually
+   reading this year's commentary — this table is the fallback for re-reads.
+   ============================================================================ */
+const RATIO_META = {
+  'current ratio': {category:'Liquidity', type:'ratio', suffix:'×', direction:'higher'},
+  'quick ratio': {category:'Liquidity', type:'ratio', suffix:'×', direction:'higher'},
+  'inventory turnover': {category:'Efficiency', type:'ratio', suffix:'×', direction:'higher'},
+  'total asset turnover': {category:'Efficiency', type:'ratio', suffix:'×', direction:'higher'},
+  'fixed asset turnover': {category:'Efficiency', type:'ratio', suffix:'×', direction:'higher'},
+  'equity ratio': {category:'Solvency', type:'percent', direction:'higher'},
+  'capitalisation ratio': {category:'Solvency', type:'ratio', suffix:'×', direction:'lower'},
+  'debt ratio': {category:'Solvency', type:'percent', direction:'lower'},
+  'times interest earned ratio': {category:'Solvency', type:'ratio', suffix:'×', direction:'higher'},
+  'debt to equity ratio': {category:'Solvency', type:'ratio', suffix:'×', direction:'lower'},
+  'debt service coverage ratio': {category:'Solvency', type:'ratio', suffix:'×', direction:'higher'},
+  'operating profit margin': {category:'Profitability', type:'percent', direction:'higher'},
+  'gross profit margin': {category:'Profitability', type:'percent', direction:'higher'},
+  'net profit margin': {category:'Profitability', type:'percent', direction:'higher'},
+  'return on assets': {category:'Profitability', type:'percent', direction:'higher'},
+  'return on equity': {category:'Profitability', type:'percent', direction:'higher'},
+  'price earnings ratio': {category:'Investment', type:'ratio', suffix:'×', direction:'context'},
+  'market to book ratio': {category:'Investment', type:'ratio', suffix:'×', direction:'context'},
+  'dividend payout ratio': {category:'Investment', type:'percent', direction:'context'},
+  'dividend yield': {category:'Investment', type:'percent', direction:'higher'},
+  'free cash flow': {category:'Cash Flow', type:'currency', direction:'higher'},
+  'cash flow adequacy ratio': {category:'Cash Flow', type:'ratio', suffix:'×', direction:'higher'},
+  'repayment of long term borrowings ratio': {category:'Cash Flow', type:'special', direction:'higher'},
+  'dividend payment ratio': {category:'Cash Flow', type:'percent', direction:'context'},
+  'reinvestment ratio': {category:'Cash Flow', type:'percent', direction:'context'},
+  'debt coverage': {category:'Cash Flow', type:'percent', direction:'lower'},
+  'cash flow to revenue': {category:'Cash Flow', type:'percent', direction:'higher'},
+  'operations index': {category:'Cash Flow', type:'ratio', suffix:'×', direction:'higher'},
+  'cash flow return on assets': {category:'Cash Flow', type:'percent', direction:'higher'},
+};
+const NA_CATEGORY = {
+  'accounts receivable turnover & average collection period': 'Liquidity',
+  'average payment period': 'Efficiency',
+};
+function deriveTier(direction, chPct){
+  if (chPct === null || chPct === undefined || direction === 'context') return 'neutral';
+  if (Math.abs(chPct) < 0.02) return 'neutral';
+  const improved = direction === 'higher' ? chPct > 0 : chPct < 0;
+  return improved ? 'positive' : 'watch';
+}
+function deriveStatus(tier, chPct){
+  if (tier === 'neutral') return 'Broadly stable';
+  const mag = chPct === null || chPct === undefined ? 0 : Math.abs(chPct);
+  if (tier === 'positive') return mag > 0.15 ? 'Improved' : 'Slightly improved';
+  return mag > 0.15 ? 'Declined' : 'Slightly softer';
+}
+
+/* ============================================================================
+   XLSX PARSER — reads an uploaded workbook that follows the same four-sheet
+   template and rebuilds the same data shape FIN.defaultData uses.
+   ============================================================================ */
+function parseWorkbook(wb){
+  const required = ['Balance Sheet','Income Statement','Cash Flow Statement','Ratio Analysis'];
+  for (const name of required){
+    if (!wb.SheetNames.includes(name)) throw new Error(`missing a "${name}" sheet`);
+  }
+  const bsWs = wb.Sheets['Balance Sheet'];
+  const incWs = wb.Sheets['Income Statement'];
+  const cfWs = wb.Sheets['Cash Flow Statement'];
+  const raWs = wb.Sheets['Ratio Analysis'];
+  const xv = (ws,c) => { const cell = ws[c]; return cell ? cell.v : undefined; };
+  const num = (ws,c) => { const v = xv(ws,c); return (typeof v === 'number') ? v : null; };
+
+  const data = { meta: {...FIN.defaultData.meta}, ratioCategories: FIN.defaultData.ratioCategories, balanceSheet:{}, incomeStatement:{}, cashFlow:{}, ratios:[] };
+
+  const bsRow = (label,y25,y24,v25,v24,chA,chP) => ({label, y25:num(bsWs,y25), y24:num(bsWs,y24), vert25:num(bsWs,v25), vert24:num(bsWs,v24), chAmt:num(bsWs,chA), chPct:num(bsWs,chP)});
+  data.balanceSheet.nonCurrentAssets = [
+    bsRow('Property, Plant, and Equipment (PPE)','B4','C4','G4','H4','I4','J4'),
+    bsRow('Right of Use Asset','B5','C5','G5','H5','I5','J5'),
+    bsRow('Biological Asset – Eco Park Project','B6','C6','G6','H6','I6','J6'),
+  ];
+  data.balanceSheet.totalNonCurrentAssets = bsRow('Total Non-Current Assets','B7','C7','G7','H7','I7','J7');
+  data.balanceSheet.currentAssets = [
+    bsRow('Cash and Cash Equivalents','B10','C10','G10','H10','I10','J10'),
+    bsRow('Trade and Other Receivables','B11','C11','G11','H11','I11','J11'),
+    bsRow('Inventories','B12','C12','G12','H12','I12','J12'),
+    bsRow('Prepayments and Other Deposits','B13','C13','G13','H13','I13','J13'),
+    bsRow('Current Tax Assets','B14','C14','G14','H14','I14','J14'),
+  ];
+  data.balanceSheet.totalCurrentAssets = bsRow('Total Current Assets','B15','C15','G15','H15','I15','J15');
+  data.balanceSheet.totalAssets = bsRow('Total Assets','B17','C17','G17','H17','I17','J17');
+  data.balanceSheet.equity = [
+    bsRow('Share Capital','B20','C20','G20','H20','I20','J20'),
+    bsRow('Accumulated Losses (Retained Earnings)','B21','C21','G21','H21','I21','J21'),
+  ];
+  data.balanceSheet.totalEquity = bsRow('Total Equity','B22','C22','G22','H22','I22','J22');
+  data.balanceSheet.nonCurrentLiabilities = [
+    bsRow('Lease Liability (Long Term)','B26','C26','G26','H26','I26','J26'),
+    bsRow('Deferred Tax Liability','B27','C27','G27','H27','I27','J27'),
+  ];
+  data.balanceSheet.totalNonCurrentLiabilities = bsRow('Total Non-Current Liabilities','B28','C28','G28','H28','I28','J28');
+  data.balanceSheet.currentLiabilities = [
+    bsRow('Trade and Other Payables','B31','C31','G31','H31','I31','J31'),
+    bsRow('Lease Liability (Current Term)','B32','C32','G32','H32','I32','J32'),
+    bsRow('Current Tax Liability','B33','C33','G33','H33','I33','J33'),
+  ];
+  data.balanceSheet.totalCurrentLiabilities = bsRow('Total Current Liabilities','B34','C34','G34','H34','I34','J34');
+  data.balanceSheet.totalLiabilities = bsRow('Total Liabilities','B36','C36','G36','H36','I36','J36');
+  data.balanceSheet.totalEquityAndLiabilities = bsRow('Total Equity and Liabilities','B39','C39','G39','H39','I39','J39');
+  data.balanceSheet.notes = {
+    marketPricePerShare:{y25:num(bsWs,'B44'),y24:num(bsWs,'C44')}, dividendsPaid:{y25:num(bsWs,'B45'),y24:num(bsWs,'C45')},
+    commonSharesIssued:{y25:num(bsWs,'B46'),y24:num(bsWs,'C46')}, earningsPerShare:{y25:num(bsWs,'B47'),y24:num(bsWs,'C47')},
+    tangibleAssetsPerShare:{y25:num(bsWs,'B48'),y24:num(bsWs,'C48')}, dividendPerShare:{y25:num(bsWs,'B49'),y24:num(bsWs,'C49')},
+    averageTotalAssets:{y25:num(bsWs,'B50'),y24:num(bsWs,'C50')}, averageShareholdersEquity:{y25:num(bsWs,'B51'),y24:num(bsWs,'C51')},
+    averageInventory:{y25:num(bsWs,'B52'),y24:num(bsWs,'C52')},
+  };
+
+  const incRow = (label,y25,y24,chA,chP,v25,v24) => ({label, y25:num(incWs,y25), y24:num(incWs,y24), chAmt:num(incWs,chA), chPct:num(incWs,chP), vert25:num(incWs,v25), vert24:num(incWs,v24)});
+  data.incomeStatement.lineItems = [
+    incRow('Revenue','C4','D4','I4','J4','K4','L4'),
+    incRow('Cost of Sales','C5','D5','I5','J5','K5','L5'),
+    incRow('Gross Profit','C6','D6','I6','J6','K6','L6'),
+    incRow('Distribution Expenses','C7','D7','I7','J7','K7','L7'),
+    incRow('Administration and other Operating Expenses','C8','D8','I8','J8','K8','L8'),
+    incRow('Profit Before Income Tax','C9','D9','I9','J9','K9','L9'),
+    incRow('Income Tax Expense','C10','D10','I10','J10','K10','L10'),
+    incRow('Net Profit After Income Tax','C11','D11','I11','J11','K11','L11'),
+    incRow('Total Comprehensive Income for the Year','C12','D12','I12','J12','K12','L12'),
+  ];
+  data.incomeStatement.notes = { netOperatingIncome:{y25:num(incWs,'C17'),y24:num(incWs,'D17')}, debtService:{y25:num(incWs,'C18'),y24:num(incWs,'D18')} };
+
+  const cfRow = (label,y25,y24,chA,chP) => ({label, y25:num(cfWs,y25), y24:num(cfWs,y24), chAmt:num(cfWs,chA), chPct:num(cfWs,chP)});
+  data.cashFlow.operating = [
+    cfRow('Cash receipts in the course of operations','B3','C3','D3','E3'),
+    cfRow('Cash payments in the course of operations','B4','C4','D4','E4'),
+    cfRow('Income tax paid','B5','C5','D5','E5'),
+    cfRow('Interest paid on lease liability','B6','C6','D6','E6'),
+  ];
+  data.cashFlow.operatingTotal = cfRow('Cash flows from operating activities','B7','C7','D7','E7');
+  data.cashFlow.investing = [
+    cfRow('Purchase of property, plant and equipment','B10','C10','D10','E10'),
+    cfRow('Proceeds from sale of property, plant and equipment','B11','C11','D11','E11'),
+    cfRow('Proceeds from insurance','B12','C12','D12','E12'),
+  ];
+  data.cashFlow.investingTotal = cfRow('Cash flows used in investing activities','B13','C13','D13','E13');
+  data.cashFlow.financing = [
+    cfRow('Principal element of lease payment','B16','C16','D16','E16'),
+    cfRow('Dividend paid','B17','C17','D17','E17'),
+  ];
+  data.cashFlow.financingTotal = cfRow('Cash flows used in financing activities','B18','C18','D18','E18');
+  data.cashFlow.netIncrease = cfRow('Net increase in cash held','B20','C20','D20','E20');
+  data.cashFlow.openingCash = cfRow('Cash and cash equivalents, 1 January','B21','C21','D21','E21');
+  data.cashFlow.closingCash = cfRow('Cash and cash equivalents, 31 December','B22','C22','D22','E22');
+
+  // Ratio Analysis: merge left table (names/formulas/values, cols B-F) with
+  // right table (names/interpretations, cols H-K) by matching ratio name.
+  const left = {};
+  for (let r=4;r<=41;r++){
+    const name = xv(raWs,'B'+r), formula = xv(raWs,'C'+r);
+    if (name && formula) left[String(name).trim().toLowerCase()] = { formula, y25:num(raWs,'D'+r), y24:xv(raWs,'E'+r), chPct:num(raWs,'F'+r) };
+  }
+  const right = {};
+  for (let r=3;r<=34;r++){
+    const name = xv(raWs,'H'+r);
+    if (name) right[String(name).trim().toLowerCase()] = { name:String(name).trim(), interp:xv(raWs,'K'+r) };
+  }
+  const aliases = {'accounts receivable turnover':'accounts receivables turnover','dividend payout ratio':'dividend payout'};
+  const getLeft = key => left[key] || (aliases[key] && left[aliases[key]]) || {};
+
+  const order = ['current ratio','quick ratio','accounts receivable turnover & average collection period','inventory turnover',
+    'average payment period','total asset turnover','fixed asset turnover','equity ratio','capitalisation ratio','debt ratio',
+    'times interest earned ratio','debt to equity ratio','debt service coverage ratio','operating profit margin','gross profit margin',
+    'net profit margin','return on assets','return on equity','price earnings ratio','market to book ratio','dividend payout ratio',
+    'dividend yield','free cash flow','cash flow adequacy ratio','repayment of long term borrowings ratio','dividend payment ratio',
+    'reinvestment ratio','debt coverage','cash flow to revenue','operations index','cash flow return on assets'];
+  const naKeys = {'accounts receivable turnover & average collection period':'accounts receivable turnover','average payment period':'average payment period'};
+
+  data.ratios = order.map(key=>{
+    if (naKeys[key]){
+      const r = right[naKeys[key]] || {};
+      return { name: r.name || key, category: NA_CATEGORY[key] || 'Liquidity', type:'na', interp: r.interp || 'Not disclosed in the uploaded workbook.' };
+    }
+    const meta = RATIO_META[key] || {category:'Other', type:'ratio', suffix:'×', direction:'context'};
+    const l = getLeft(key), r = right[key] || {};
+    const chPct = (typeof l.chPct === 'number') ? l.chPct : null;
+    const tier = deriveTier(meta.direction, chPct);
+    const y24 = (typeof l.y24 === 'number') ? l.y24 : null;
+    return {
+      name: r.name || key,
+      category: meta.category,
+      formula: l.formula || '',
+      y25: (typeof l.y25 === 'number') ? l.y25 : null,
+      y24, chPct, type: meta.type, suffix: meta.suffix, tier,
+      status: deriveStatus(tier, chPct),
+      interp: r.interp || 'No interpretation was provided in the uploaded sheet for this ratio.'
+    };
+  });
+
+  return data;
+}
+
+/* ============================================================================
+   RENDER ORCHESTRATOR + INTERACTIVITY
+   ============================================================================ */
+function jointDivider(){
+  const w = el('div', {class:'wrap'});
+  w.appendChild(el('div', {class:'joint-divider'}));
+  return w;
+}
+
+let scrollObserver = null;
+function renderAll(data){
+  FIN.data = data;
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+  app.appendChild(renderHero(data));
+  app.appendChild(jointDivider());
+  app.appendChild(renderSummary(data));
+  app.appendChild(jointDivider());
+  app.appendChild(renderBalanceSheet(data));
+  app.appendChild(jointDivider());
+  app.appendChild(renderIncomeStatement(data));
+  app.appendChild(jointDivider());
+  app.appendChild(renderCashFlow(data));
+  app.appendChild(jointDivider());
+  app.appendChild(renderRatios(data));
+  app.appendChild(renderFooter(data));
+
+  const brandPeriod = document.getElementById('brand-period');
+  if (brandPeriod) brandPeriod.textContent = `FY${data.meta.yearCurrent} · ${data.meta.exchange.toUpperCase()}`;
+
+  if (scrollObserver) scrollObserver.disconnect();
+  scrollObserver = setupScrollspy();
+}
+
+function setupNav(){
+  document.querySelectorAll('#pill-nav button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const target = document.getElementById(btn.dataset.target);
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+}
+function setupScrollspy(){
+  const ids = ['overview','balance-sheet','income-statement','cash-flow','ratios'];
+  const buttons = document.querySelectorAll('#pill-nav button');
+  const sections = ids.map(id=>document.getElementById(id)).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !sections.length) return null;
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if (entry.isIntersecting){
+        buttons.forEach(b=>b.classList.toggle('active', b.dataset.target===entry.target.id));
+      }
+    });
+  }, {rootMargin: '-35% 0px -55% 0px', threshold: 0});
+  sections.forEach(s=>observer.observe(s));
+  return observer;
+}
+
+function setupUploadModal(){
+  const openBtn = document.getElementById('open-upload-btn');
+  const overlay = document.getElementById('upload-modal');
+  const closeBtn = document.getElementById('modal-close-btn');
+  const resetBtn = document.getElementById('modal-reset-btn');
+  const dropZone = document.getElementById('drop-zone');
+  const fileInput = document.getElementById('file-input');
+  const status = document.getElementById('modal-status');
+
+  openBtn.addEventListener('click', ()=>overlay.classList.add('open'));
+  closeBtn.addEventListener('click', ()=>overlay.classList.remove('open'));
+  overlay.addEventListener('click', (e)=>{ if (e.target===overlay) overlay.classList.remove('open'); });
+  document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') overlay.classList.remove('open'); });
+
+  dropZone.addEventListener('click', ()=>fileInput.click());
+  dropZone.addEventListener('keydown', (e)=>{ if (e.key==='Enter' || e.key===' '){ e.preventDefault(); fileInput.click(); } });
+  dropZone.addEventListener('dragover', (e)=>{ e.preventDefault(); dropZone.classList.add('dragover'); });
+  dropZone.addEventListener('dragleave', ()=>dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop', (e)=>{
+    e.preventDefault(); dropZone.classList.remove('dragover');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', (e)=>{ if (e.target.files.length) handleFile(e.target.files[0]); });
+  resetBtn.addEventListener('click', ()=>{
+    renderAll(FIN.defaultData);
+    status.textContent = 'Reset to the originally uploaded spreadsheet.';
+    status.className = 'modal-status ok';
+  });
+
+  function handleFile(file){
+    if (!/\.xlsx$/i.test(file.name)){
+      status.textContent = 'Please upload a .xlsx file.';
+      status.className = 'modal-status err';
+      return;
+    }
+    status.textContent = 'Reading ' + file.name + '…';
+    status.className = 'modal-status';
+    const reader = new FileReader();
+    reader.onload = (e)=>{
+      try {
+        if (typeof XLSX === 'undefined') throw new Error('the spreadsheet library did not load — check your connection and try again');
+        const wb = XLSX.read(e.target.result, {type:'array'});
+        const parsed = parseWorkbook(wb);
+        renderAll(parsed);
+        status.textContent = 'Dashboard updated from ' + file.name + '.';
+        status.className = 'modal-status ok';
+      } catch(err){
+        console.error(err);
+        status.textContent = "Couldn't read that file — " + (err.message || 'unexpected format') + '. Make sure it follows the same four-sheet template.';
+        status.className = 'modal-status err';
+      }
+    };
+    reader.onerror = ()=>{ status.textContent = "Couldn't read that file."; status.className = 'modal-status err'; };
+    reader.readAsArrayBuffer(file);
+  }
+}
+
+/* ============================================================================
+   INIT
+   ============================================================================ */
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderAll(FIN.defaultData);
+  setupNav();
+  setupUploadModal();
+});
+</script>
+</body>
+</html>
